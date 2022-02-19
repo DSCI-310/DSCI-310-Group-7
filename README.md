@@ -51,6 +51,8 @@ For further detailed information, See:
 
    Note: if you are facing trouble in accessing the link go to web browser
    open localhost:port_no, and than for the password copy the entire alpha numeric mentioned in termial after token="alpha numeric no" and paste it, you should be able to acess now!
+
+   d.Now access the file using the JupyterLab
 3. Licenses contained in [license](LICENSE.md):
    
    a. an MIT license for the project code 
