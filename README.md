@@ -32,10 +32,14 @@ The dataset we will be using is the Zoo (1990) provided by UCL Machine Learning 
    
    e. numpy package in version 1.22.2
 3. Steps to run: 
+   
    a. Run "docker run --rm -p 8787:8787 jupyter/scipy-notebook" in terminal
+   
    b. Open up a web browser and access the server through http://127.0.0.1:8888/lab?token=399e23fe91a267a070037bd5196feaf0f2decd6e136ffcb0
 3. licenses contained in LICENSE.md:
+   
    a. an MIT license for the project code 
+   
    b. a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International(CC BY-NC-ND 4.0) license for the project report
 
 
