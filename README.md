@@ -3,9 +3,13 @@
 <br>
 
 ## Contributors / Authors: 
+
 ·Elaine Zhou
+
 ·Jossie Jiang
+
 ·Swakhar Poddar
+
 ·Weihao Sun
 
 <br>
@@ -17,10 +21,15 @@ The dataset we will be using is the Zoo (1990) provided by UCL Machine Learning 
 
 ## How to Run the Analysis
 1. A list of the dependencies needed to run the analysis:
+   
    a. Jupyter notebook with python
+   
    b. pandas package in version 1.4.1
+   
    c. scikit-learn module in version 1.0.2
+   
    d. matplotlib package in version 3.5.1
+   
    e. numpy package in version 1.22.2
 3. Steps to run: 
    a. Run "docker run --rm -p 8787:8787 jupyter/scipy-notebook" in terminal
