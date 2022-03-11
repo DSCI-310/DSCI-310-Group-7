@@ -11,7 +11,7 @@
 #'
 #' @examples
 #' TrainAndPredictModel('KNN', 81, X_train, y_train, y_test)
-Def train_and_predict_model(algorithm, Ks, X_train, y_train, y_test):
+def train_and_predict_model(algorithm, Ks, X_train, y_train, y_test):
     for n in range(1, Ks):
         if algorithm == 'DT':
             decTree = DecisionTreeClassifier(criterion="entropy", max_depth = n)
