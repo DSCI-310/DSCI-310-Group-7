@@ -14,8 +14,8 @@
 #' @export
 #'
 #' @examples
-#' line_plot(...)
-Def line_plot(k, mean, std, x, y, name): 
+#' line_plot(Ks, mean, std, "x-axis", "y-axis", "population distribution")
+def line_plot(k, mean, std, x, y, name): 
     plt.plot(range(1,k),data,'g')
     plt.fill_between(range(1, k), data - 1 * std_acc, data + 1 * data, alpha=0.10)
     plt.legend(('Accuracy ', '+/- 3xstd'))
