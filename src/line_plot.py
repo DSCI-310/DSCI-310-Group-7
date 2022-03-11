@@ -25,6 +25,6 @@ def line_plot(k, mean, std, x, y, name):
     plt.ylabel(y)
     plt.title(name)
     plt.tight_layout()
-    # plt.show()
+
     return fig
     # plt.show()
