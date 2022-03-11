@@ -1,6 +1,6 @@
 import pytest
-import matplotlib.pyplot as plt
 import matplotlib
+import matplotlib.pyplot as plt
 import numpy as np
 from src.line_plot import *
 
