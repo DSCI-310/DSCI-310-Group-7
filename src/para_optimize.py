@@ -1,8 +1,5 @@
 #' Optimize hyper-parameters for a model
 #'
-#' Creates a new data frame with two columns, 
-#' listing the classes present in the input data frame,
-#' and the number of observations for each class.
 #'
 #' @param mod A model already defined to be optimized (e.g. KNN).
 #' @param params A dictionary of hyper-parameters to be evaluated. 
