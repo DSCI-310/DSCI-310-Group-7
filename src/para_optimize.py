@@ -32,4 +32,3 @@ def para_optimize(mod, params, n, X_train, y_train):
         return best
     else:
         return("The model is invalid.")
-
