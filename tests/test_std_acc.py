@@ -10,6 +10,7 @@ df_iris = dataset_iris.data
 feature = df_iris[["Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width"]]
 X = feature
 y = df_iris["Species"]
+Ks = 10
 
 # function input for the test
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=4)
@@ -22,8 +23,7 @@ for n in range(1, Ks):
 msg = "expected value and exact output is not equal!"
 
 # expected out for the test
-std_acc = np.zeros((Ks-1))
-
+std_acc_expected = np.zeros((Ks-1))
 for n in range(1, Ks):
     std_acc_expected[n - 1] = np.std(yhat == y_test) / np.sqrt(yhat.shape[0])
 
@@ -31,4 +31,4 @@ class TestStdAcc(unittest.TestCase):
     def test_stdAcc(self):
         std_acc_generated = stdAcc(yhat, y_test, Ks)
         for i in range(1, Ks):
-            self.assertEqual(std_acc[i], std_acc_generated[i])
+            self.assertEqual(std_acc_expected[i], std_acc_generated[i])
