@@ -14,6 +14,8 @@ import pandas as pd
 # ' para_optimize(yhat, y_test)
 
 def stdAcc(yhat, y_test, Ks):
+    std_acc = np.zeros((Ks-1))
+    
     for n in range(1, Ks):
         std_acc[n - 1] = np.std(yhat == y_test) / np.sqrt(yhat.shape[0])
     return std_acc
