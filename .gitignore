@@ -132,3 +132,9 @@ notebook/.DS_Store
 data/.DS_Store
 data/raw/.DS_Store
 data/processed/.DS_Store
+.idea/vcs.xml
+.idea/dictionaries
+.idea/DSCI-310-Group-7.iml
+.idea/misc.xml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/modules.xml
