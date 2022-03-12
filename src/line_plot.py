@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 #' Plot a linear relationship
 #'
 #' 
@@ -14,13 +15,16 @@
 #' @export
 #'
 #' @examples
-#' line_plot(...)
-Def line_plot(k, mean, std, x, y, name): 
-    plt.plot(range(1,k),data,'g')
-    plt.fill_between(range(1, k), data - 1 * std_acc, data + 1 * data, alpha=0.10)
+#' line_plot(Ks, mean, std, "x-axis", "y-axis", "population distribution")
+def line_plot(k, mean, std, x, y, name): 
+    fig = plt.figure()
+    plt.plot(range(1,k), mean, 'g')
+    plt.fill_between(range(1, k), mean - 1 * std, mean + 1 * std, alpha=0.10)
     plt.legend(('Accuracy ', '+/- 3xstd'))
     plt.xlabel(x)
     plt.ylabel(y)
     plt.title(name)
     plt.tight_layout()
-    plt.show()
+
+    return fig
+    # plt.show()
