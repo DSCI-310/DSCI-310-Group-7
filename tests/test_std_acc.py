@@ -10,7 +10,6 @@ df_iris = dataset_iris.data
 feature = df_iris[["Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width"]]
 X = feature
 y = df_iris["Species"]
-Ks = 10
 
 # function input for the test
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=4)
@@ -19,6 +18,7 @@ for n in range(1, Ks):
     decTree = DecisionTreeClassifier(criterion="entropy", max_depth=n)
     decTree.fit(X_train, y_train)
     yhat = decTree.predict(X_test)
+Ks = 10
 
 msg = "expected value and exact output is not equal!"
 
@@ -31,4 +31,4 @@ class TestStdAcc(unittest.TestCase):
     def test_stdAcc(self):
         std_acc_generated = stdAcc(yhat, y_test, Ks)
         for i in range(1, Ks):
-            self.assertEqual(std_acc_expected[i], std_acc_generated[i])
+            self.assertEqual(std_acc_expected[i], std_acc_generated[i], msg)
