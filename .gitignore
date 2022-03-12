@@ -134,3 +134,5 @@ data/raw/.DS_Store
 data/processed/.DS_Store
 .idea/vcs.xml
 .idea/workspace.xml
+main.py
+.idea/inspectionProfiles/profiles_settings.xml
