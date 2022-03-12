@@ -52,7 +52,7 @@ def finalModel(algorithm, threshold, X_train, X_test, y_train, y_test, X, y):
         svec.fit(X_train, y_train)
         yhat = svec.predict(X_test)
         acc = jaccard_score(y_test, yhat, average='micro')
-        print("SVM INFO: So the Jaccard score for SVM is: " + str(acc))
+        print("SVM INFO: So the Training Jaccard score for SVM is: " + str(acc))
         print("\nSVM Evaluation:\n")
         print(classification_report(y_test, yhat))
         # Final SVM is here used the splited test part to train again for better training, and better prediction
@@ -65,7 +65,7 @@ def finalModel(algorithm, threshold, X_train, X_test, y_train, y_test, X, y):
         LR = LogisticRegression(C=0.07, solver='sag').fit(X_train, y_train)
         yhat = LR.predict(X_test)
         acc = jaccard_score(y_test, yhat, average='micro')
-        print("LR INFO: So the Jaccard score for Logistic Regression is: " + str(acc))
+        print("LR INFO: So the Training Jaccard score for Logistic Regression is: " + str(acc))
         print("\nLR Evaluation: \n")
         print(classification_report(y_test, yhat))
         # final LR model is here used the splited test part to train again for better training, and better prediction
