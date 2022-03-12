@@ -1,7 +1,7 @@
 #' Optimize hyper-parameters for a model
 #'
 #'
-#' @param mod A model already defined to be optimized (e.g. KNN). Models are one of: KNN, DecisionTree, SVM, LogisticRegression
+#' @param mod A model already defined to be optimized (e.g. KNN).
 #' @param params A dictionary of hyper-parameters to be evaluated. 
 #'               Keys are hyper-parameter names. Values are the hyper-parameter values
 #'               (e.g. dict(n_neighbors=list(range(1, 21)))).
@@ -24,8 +24,8 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn import svm
 from sklearn.linear_model import LogisticRegression
 
-Def para_optimize(mod, params, n, X_train, y_train):
-    if isinstance(mod, KNeighborsClassifier)|isinstance(mod,DecisionTreeClassifier)|isinstance(mod,svm)|isinstance(mod,LogisticRegression):
+def para_optimize(mod, params, n, X_train, y_train):
+    if (isinstance(mod, KNeighborsClassifier) or isinstance(mod,DecisionTreeClassifier) or isinstance(mod,svm) or isinstance(mod,LogisticRegression)):
         grid = GridSearchCV(mod, params, cv=n, scoring='accuracy')
         grid.fit(X_train, y_train)
         best = grid.best_params_
