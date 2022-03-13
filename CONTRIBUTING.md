@@ -2,11 +2,6 @@
 
 First of all, thank you for spearing time with us on this project! We welcome all contributions to this project! The following is a set of guidlines for contributing to our project. Feel free to propose changes in a pull request.
 
-**Table Of Contents**
-
-[toc]
-
-
 
 # Code of Conduct
 
@@ -14,7 +9,7 @@ Please carefully read the [readme](README.md) and [code of conduct](CODE_OF_COND
 
 # How Can I Contribute?
 
-Here are some guidlines on how you can contribute to this project as a direct or external partner. Following these guidlines helps us and the community understand your work and/or reproduce the behaviour. All the contributions and bugs reported can be tracked on [issues board](https://github.com/DSCI-310/DSCI-310-Group-7/issues). 
+Here are some guidlines on how you can contribute to this project. Following these guidlines helps us and the community understand your work and/or reproduce the behaviour. All the contributions and bugs reported can be tracked on [issues board](https://github.com/DSCI-310/DSCI-310-Group-7/issues). 
 
 ## Bug Report
 
