@@ -28,15 +28,16 @@ For further detailed information, See our:
 ## How to Run the Analysis
 1. A list of the dependencies needed to run the analysis:
    
-   Package Name           | Version     | Channel
---------------------------|-------------|----------
-pandas                    | 1.4.1       | conda-forge
-scikit-learn              | 1.0.2       | conda-forge
-matplotlib                | 3.5.1       | conda-forge
-numpy                     | 1.22.2      | conda-forge
-pytest                    | 7.0.1       | conda-forge
+|   Package Name           | Version  |
+|--------------------------|----------|
+|pandas                    | 1.4.1    |
+|scikit-learn              | 1.0.2    |   
+|matplotlib                | 3.5.1    |   
+|numpy                     | 1.22.2   |   
+|pytest                    | 7.0.1    |   
    
    see [dockerfile](Dockerfile) and [docker image](https://hub.docker.com/repository/docker/sasiburi/dsci-310-group-7)
+
 2. Steps to run: 
 
    a.Run in your terminal `docker pull sasiburi/dsci-310-group-7:<tag name>`
@@ -51,6 +52,7 @@ pytest                    | 7.0.1       | conda-forge
    open localhost:8888 and then for the password copy the entire alpha numeric mentioned in termial after token="alpha numeric no" and paste it, you should be able to acess now!
 
    d.Now access the file using the JupyterLab
+
 3. Licenses contained in [license](LICENSE.md), including:
    
    a. an MIT license for the project code 
