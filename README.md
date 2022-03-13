@@ -28,7 +28,7 @@ For further detailed information, See our:
 ## How to Run the Analysis
 1. A list of the dependencies needed to run the analysis:
    
-   Package Name              | Version     | Channel
+   Package Name           | Version     | Channel
 --------------------------|-------------|----------
 pandas                    | 1.4.1       | conda-forge
 scikit-learn              | 1.0.2       | conda-forge
