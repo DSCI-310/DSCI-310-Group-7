@@ -30,6 +30,7 @@ For further detailed information, See our:
    
 |   Package Name           | Version  |
 |--------------------------|----------|
+|python                    | 3.9.7    |
 |pandas                    | 1.4.1    |
 |scikit-learn              | 1.0.2    |   
 |matplotlib                | 3.5.1    |   
@@ -43,7 +44,7 @@ For further detailed information, See our:
    a.Run in your terminal `docker pull sasiburi/dsci-310-group-7:<tag name>`
 
    b.Run the docker image with image id or name
-   Run `docker run -p 8888:8888 image_id/name" in terminal`
+   Run `docker run -p 8888:8888 image_id/name` in terminal
    
    c.Open up a web browser and access the server through the link provided
    in terminal
