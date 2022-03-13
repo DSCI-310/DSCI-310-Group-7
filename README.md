@@ -15,9 +15,9 @@
 <br>
 
 ## Short Summary
-The data set we used is the Zoo (1990) provided by UCL Machine Learning Repositry. It stores data about 7 classes of animals and their related factors inlcuding animal name, hair, feathers and so on. In this project, we picked classification as our method to classify a given animal to its most likely type. We also used multiple analysis to identify the type of the animals using 16 variables including hair, feathers, eggs, milk, airborne, aquatic, predator, toothed, backbone, breathes, venomous, fins, legs, tail, domestic, and catsize as our predictors. To best predict the class of a new observation, we implemented and compared a list of algorithms. Every type of algorithms will be mentioned in the main project [analysis](analysis/zoo_analysis.ipynb). 
+The data set we used is the Zoo (1990) provided by UCL Machine Learning Repositry. It stores data about 7 classes of animals and their related factors inlcuding animal name, hair, feathers and so on. In this project, we picked classification as our method to classify a given animal to its most likely type. We also used multiple analysis to identify the type of the animals using 16 variables including hair, feathers, eggs, milk, airborne, aquatic, predator, toothed, backbone, breathes, venomous, fins, legs, tail, domestic, and catsize as our predictors. To best predict the class of a new observation, we implemented and compared a list of algorithms including K Nearest Neighbor(KNN), Decision Tree, Support Vector Machine and Logistic Regression. After comparison between accuracy of different methods, we finally find that KNN method produces the most accurate result of predicting animal type. See [analysis](analysis/zoo_analysis.ipynb). 
 
-For further detailed information, See:
+For further detailed information, See our:
 
 [code of conduct](CODE_OF_CONDUCT.md)
 
@@ -28,7 +28,7 @@ For further detailed information, See:
 ## How to Run the Analysis
 1. A list of the dependencies needed to run the analysis:
    
-   a. Jupyter notebook with python
+   a. Jupyter notebook with python version 3.9.10
    
    b. pandas package in version 1.4.1
    
@@ -39,21 +39,21 @@ For further detailed information, See:
    e. numpy package in version 1.22.2
    
    see [dockerfile](Dockerfile) and [docker image](https://hub.docker.com/repository/docker/sasiburi/dsci-310-group-7)
-3. Steps to run: 
+2. Steps to run: 
 
-   a.Run in your terminal docker pull sasiburi/dsci-310-group-7
+   a.Run in your terminal `docker pull sasiburi/dsci-310-group-7:<tag name>`
 
    b.Run the docker image with image id or name
-   Run "docker run -p 8888:8888 image_id/name" in terminal
+   Run `docker run -p 8888:8888 image_id/name" in terminal`
    
    c.Open up a web browser and access the server through the link provided
    in terminal
 
-   Note: if you are facing trouble in accessing the link go to web browser
-   open localhost:8888 and than for the password copy the entire alpha numeric mentioned in termial after token="alpha numeric no" and paste it, you should be able to acess now!
+   Note: if you are facing troubles in accessing the link go to web browser
+   open localhost:8888 and then for the password copy the entire alpha numeric mentioned in termial after token="alpha numeric no" and paste it, you should be able to acess now!
 
    d.Now access the file using the JupyterLab
-3. Licenses contained in [license](LICENSE.md):
+3. Licenses contained in [license](LICENSE.md), including:
    
    a. an MIT license for the project code 
    
