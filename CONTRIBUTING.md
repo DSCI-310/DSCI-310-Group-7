@@ -1,6 +1,6 @@
 # Contribution and Feedback
 
-First of all, thank you for spearing time with us on this project! We welcome all contributions to this project! The following is a set of guidlines for contributing to our project. Feel free to propose changes in a pull request.
+First of all, thank you for sparing time with us on this project! We welcome all contributions to this project! The following is a set of guidlines for contributing to our project. Feel free to propose changes in a pull request.
 
 
 # Code of Conduct
