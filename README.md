@@ -14,7 +14,7 @@
 
 <br>
 
-## Short Summary
+## About(Short Summary)
 The data set we used is the Zoo (1990) provided by UCL Machine Learning Repositry. It stores data about 7 classes of animals and their related factors inlcuding animal name, hair, feathers and so on. In this project, we picked classification as our method to classify a given animal to its most likely type. We also used multiple analysis to identify the type of the animals using 16 variables including hair, feathers, eggs, milk, airborne, aquatic, predator, toothed, backbone, breathes, venomous, fins, legs, tail, domestic, and catsize as our predictors. To best predict the class of a new observation, we implemented and compared a list of algorithms including K Nearest Neighbor(KNN), Decision Tree, Support Vector Machine and Logistic Regression. After comparison between accuracy of different methods, we finally find that KNN method produces the most accurate result of predicting animal type. See [analysis](analysis/zoo_analysis.ipynb). 
 
 For further detailed information, See our:
@@ -28,15 +28,13 @@ For further detailed information, See our:
 ## How to Run the Analysis
 1. A list of the dependencies needed to run the analysis:
    
-   a. Jupyter notebook with python version 3.9.10
-   
-   b. pandas package in version 1.4.1
-   
-   c. scikit-learn module in version 1.0.2
-   
-   d. matplotlib package in version 3.5.1
-   
-   e. numpy package in version 1.22.2
+   Package Name              | Version     | Channel
+--------------------------|-------------|----------
+pandas                    | 1.4.1       | conda-forge
+scikit-learn              | 1.0.2       | conda-forge
+matplotlib                | 3.5.1       | conda-forge
+numpy                     | 1.22.2      | conda-forge
+pytest                    | 7.0.1       | conda-forge
    
    see [dockerfile](Dockerfile) and [docker image](https://hub.docker.com/repository/docker/sasiburi/dsci-310-group-7)
 2. Steps to run: 
