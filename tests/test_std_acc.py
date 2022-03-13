@@ -22,6 +22,7 @@ for n in range(1, 50):
     decTree = DecisionTreeClassifier(criterion="entropy", max_depth=n)
     decTree.fit(X_train, y_train)
     yhat = decTree.predict(X_test)
+Ks = 10
 
 msg = "expected value and exact output is not equal!"
 

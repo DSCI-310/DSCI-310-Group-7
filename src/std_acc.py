@@ -11,7 +11,7 @@ import numpy as np
 # ' @export
 # '
 # ' @examples
-# ' para_optimize(yhat, y_test)
+# ' para_optimize(yhat, y_test, 10)
 
 def stdAcc(yhat, y_test, Ks):
     std_acc = np.zeros((Ks-1))
