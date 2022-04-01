@@ -1,5 +1,5 @@
 """
-Creating a exploratory histogram of the dataset.
+Creating an exploratory histogram of the dataset.
 
 Usage: src/eda_visualization_script.py data_path out_file
 
