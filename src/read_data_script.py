@@ -1,5 +1,5 @@
 """
-Download the dataset from the url online and save it to the local path.
+Download the dataset from the url online, preprocess and save it to the local path.
 
 Usage: src/read_data_script.py url out_file
 
@@ -10,6 +10,7 @@ out_file    The local file path to save the processed data including the file ty
 
 import argparse
 import pandas as pd
+from pre_processing import *
 
 parser = argparse.ArgumentParser(description='Read and save dataset')
 parser.add_argument('url', type=str, help='the url of the dataset')
@@ -18,7 +19,10 @@ args = parser.parse_args()
 
 url = args.url
 path = args.out_file
+colm = ["animalName", "hair", "feathers", "eggs", "milk", "airborne", "aquatic", 
+        "predator", "toothed", "backbone", "breathes", "venomous", "fins", 
+        "legs", "tail", "domestic", "catsize", "type"]
 
-data = pd.read_csv(url, header=None)
+data = pre_process(url, colm)
 data.to_csv(path)
 
