@@ -195,7 +195,7 @@ plt.xlabel('Max_Depth')
 plt.tight_layout()
 ```
 
-```{python decision_tree_accuracy, echo=FALSE}
+```{python decision_tree_info, echo=FALSE}
 print("The best accuracy was with the values", mean_acc.max(), "with max_depth =", mean_acc.argmax()+1)
 ```
 ### Decision Tree final model & evaluation
