@@ -1,0 +1,58 @@
+---
+title: Prediction on Animal Type
+author: "Elaine Zhou, Jossie Jiang, Swakhar Poddar & Weihao Sun"
+output:
+  bookdown::html_document2:
+    toc: true
+    toc_depth: 2
+
+  bookdown::pdf_document2:
+    toc: true
+    toc_depth: 2
+bibliography: references.bib 
+---
+
+## Summary
+
+The data set we will be using is Zoo [@zoo-data] provided by UC Irvine Machine Learning Repository. It stores data with 7 classes of animals and their related characteristics including animal name, hair, feathers and other attributes. In this project, we will use classification as our method to predict a most likely type of a given animal.
+
+## Introduction
+
+The earth is an amazing planet that cultivates branches of animals. In general, scholars split them into 12 classes including mammals, birds, reptiles, amphibians, fishes, insects, crustaceans, arachnids, echinoderms, worms, mollusks and sponges[@types-of-animals]. The traditional way in animal classification is manually identifying the characteristics and attributing it the mostly close class [@animal-classification]. However, it is tedious and time consuming, especially when the data set is very huge. A question hereby comes to us, if we can apply K-nearest neighbors (KNN) algorithms in predicting the type an animal belongs to given its related characteristics, such as hair, feathers, etc.? Therefore, in this project, we will show how we use KNN to do classification in animals based on data set [@zoo-data] which contains 1 categorical attribute, 17 Boolean-valued attributes and 1 numerical attribute. The categorical attribute appears to be the class attribute. Detailed breakdowns are as follows:
+
+animal name: Unique for each instance
+hair: Boolean
+feathers: Boolean
+eggs: Boolean
+milk: Boolean
+airborne: Boolean
+aquatic: Boolean
+predator: Boolean
+toothed: Boolean
+backbone: Boolean
+breathes: Boolean
+venomous: Boolean
+fins: Boolean
+legs: Numeric (set of values: {0,2,4,5,6,8})
+tail: Boolean
+domestic: Boolean
+catsize: Boolean
+type: Numeric (integer values in range [1,7])
+
+## Methods & Results
+
+We are going to use multiple analysis to classify the type of the animals using 16 variables including hair, feathers, eggs, milk, airborne, aquatic, predator, toothed, backbone, breathes, venomous, fins, legs, tail, domestic, catsize as our predictors. To predict the class of a new observation, the algorithms of each type will be further explained before implementation.
+
+```{python, include=FALSE}
+from sklearn.model_selection import train_test_split, GridSearchCV
+import numpy as np
+import matplotlib.pyplot as plt
+import sys
+sys.path.append( '..' )
+from src.pre_processing import *
+from src.train_and_predict_model import *
+from src.line_plot import *
+from src.para_optimize import *
+from src.std_acc import *
+from src.line_plot import *
+```
