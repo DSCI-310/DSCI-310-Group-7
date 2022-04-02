@@ -42,7 +42,7 @@ feature = zoo_data[["hair", "feathers", "eggs", "milk", "airborne",
 X = feature
 
 # saving the top 5 row of data as csv
-X.head().to_csv(export_loc + "/head.csv")
+X.head().to_csv(export_loc + "csv/head.csv")
 
 # now in next steps let's do the KNN training
 y = zoo_data['type']
@@ -64,7 +64,7 @@ for n in range(1, Ks):
 std_acc = stdAcc(yhat, y_test, Ks)
 
 line_plot(Ks, mean_acc, std_acc, "Number of Neighbors (K)", "Accuracy", "Number of Neighbors vs. Accuracy")
-plt.savefig(export_loc + "/k_accuracy.png")
+plt.savefig(export_loc + "figures/k_accuracy.png")
 
 # Finding the K value using Grid Search
 knn = KNeighborsClassifier()
@@ -81,8 +81,8 @@ final_knn_model = finalModel("KNN", 1, X_train, X_test, y_train, y_test, X, y)
 
 # cross-validation on knn
 cv_results_knn = cross_validate(final_knn_model, X_train, y_train, cv=3, return_train_score=True);
-pd.DataFrame(cv_results_knn).mean().to_csv(export_loc + "/knn_cross_validate_result.csv")
+pd.DataFrame(cv_results_knn).mean().to_csv(export_loc + "csv/knn_cross_validate_result.csv")
 yhat = final_knn_model.predict(X_test)
 report = classification_report(y_test, yhat, output_dict=True)
 df = pd.DataFrame(report).transpose()
-df.to_csv(export_loc + "/knn_classification_report.csv")
+df.to_csv(export_loc + "csv/knn_classification_report.csv")
