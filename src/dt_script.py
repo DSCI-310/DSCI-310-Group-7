@@ -1,9 +1,9 @@
 """
 Takes the clean data location get the data from their do the model evaluation and train
-it using the best k for KNN and export the reports and results of KNN model to the export
+it using the best max-depth for decision tree and export the reports and results of decision tree model to the export
 location
 
-Usage: src/knn_script.py data_loc export_loc
+Usage: src/dt_script.py data_loc export_loc
 
 Options:
 data_loc     The location of the cleaned data that the model will use to train
@@ -41,48 +41,38 @@ feature = zoo_data[["hair", "feathers", "eggs", "milk", "airborne",
 # making it as X
 X = feature
 
-# saving the top 5 row of data as csv
-X.head().to_csv(export_loc + "/head.csv")
-
-# now in next steps let's do the KNN training
+# now in next steps let's do the Decision Tree modeling
 y = zoo_data['type']
 
 # splitting the dataset 80-20 for train and test
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=4)
 
-# training the model for different set of K values and finding the best K value
-Ks = 81
-mean_acc = np.zeros((Ks - 1))
-std_acc = np.zeros((Ks - 1))
+Ks = 50
+mean_acc = np.zeros((Ks-1))
+std_acc = np.zeros((Ks-1))
 ConfustionMx = [];
-for n in range(1, Ks):
+for n in range(1,Ks):
     # Train Model and Predict
-    neigh = KNeighborsClassifier(n_neighbors=n).fit(X_train, y_train)
-    yhat = neigh.predict(X_test)
-    mean_acc[n - 1] = metrics.accuracy_score(y_test, yhat)
+    decTree = DecisionTreeClassifier(criterion="entropy", max_depth = n)
+    decTree.fit(X_train,y_train)
+    yhat=decTree.predict(X_test)
+    mean_acc[n-1] = metrics.accuracy_score(y_test, yhat)
 
 std_acc = stdAcc(yhat, y_test, Ks)
 
-line_plot(Ks, mean_acc, std_acc, "Number of Neighbors (K)", "Accuracy", "Number of Neighbors vs. Accuracy")
-plt.savefig(export_loc + "/k_accuracy.png")
+line_plot(Ks, mean_acc, std_acc, "Max Depth", "Accuracy", "Max Depth vs. Accuracy")
+plt.savefig(export_loc + "/dt_accuracy.png")
 
-# Finding the K value using Grid Search
-knn = KNeighborsClassifier()
-k_vals = list(range(1, 21))
-param_grid = dict(n_neighbors=k_vals)
+# As Best is max depth = 5
+# using max depth = 5 for the final decision tree
+# Final decision tree is here used the split test part to train again for better training, and better prediction
+# DT evaluation is also here scroll through the output
+Final_dec_Tree = finalModel("DT", 5, X_train, X_test, y_train, y_test, X, y)
 
-para_optimize(knn, param_grid, 3, X_train, y_train)
-
-# as the best accuracy was with K = 1
-# using K = 1 for the final KNN model
-# Final KNN model is here used the split test part to train again for better training, and better prediction
-# KNN evaluation is also here scroll through the output
-final_knn_model = finalModel("KNN", 1, X_train, X_test, y_train, y_test, X, y)
-
-# cross-validation on knn
-cv_results_knn = cross_validate(final_knn_model, X_train, y_train, cv=3, return_train_score=True);
-pd.DataFrame(cv_results_knn).mean().to_csv(export_loc + "/knn_cross_validate_result.csv")
-yhat = final_knn_model.predict(X_test)
+# cross-validation on decision tree
+cv_results_dt = cross_validate(Final_dec_Tree, X_train, y_train, cv=4, return_train_score=True);
+pd.DataFrame(cv_results_dt).mean().to_csv(export_loc + "/dt_cross_validate_result.csv")
+yhat = Final_dec_Tree.predict(X_test)
 report = classification_report(y_test, yhat, output_dict=True)
 df = pd.DataFrame(report).transpose()
-df.to_csv(export_loc + "/knn_classification_report.csv")
+df.to_csv(export_loc + "/dt_classification_report.csv")
