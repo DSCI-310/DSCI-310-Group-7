@@ -26,12 +26,12 @@ Documents about Project Manners:
 <br>
 
 ## Usage
-Our analysis report in form of jupyter book is stored at [analysis/_build/html/index.html](analysis/_build/html/index.html).
-In order to preview/reproduce our report, there are two suggested ways:
+Our analysis report in form of jupyter book is stored at [analysis/_build/html/index.html](analysis/_build/html/index.html) and the report in other forms of [.Rmd](doc/zoo_analysis.Rmd). [.jpynb](analysis/original_report/zoo_analysis.ipynb) and [.pdf](doc/zoo_analysis.pdf) are also viewable.
+In order to repeat/reproduce our jupyter book report, there are two suggested ways:
 
-1. Via Docker
+### Via Docker
 
-a. Run in your terminal
+**a. Run in your terminal**
 
 ```
 docker pull sasiburi/dsci-310-group-7:latest
@@ -41,7 +41,7 @@ docker pull sasiburi/dsci-310-group-7:latest
 
 <br>
 
-b. Run the docker image
+**b. Run the docker image**
 
 Clone this repo by command:
 
@@ -61,30 +61,38 @@ docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work sasiburi/dsci-310-group
 
 <br>
 
-c. Access files via JupyterLab
+**c. Access files via JupyterLab**
 
 Open link provided on the console
 
-*Note: If token is required, it can be obtained on your terminal. For example, `token=3912f59232fe3b260fda201da4e822e69bfed02e649dc56b`, then `3912f59232fe3b260fda201da4e822e69bfed02e649dc56b` is the token.*
+*Note: If a token is required, it can be obtained on your terminal. For example, `token=3912f59232fe3b260fda201da4e822e69bfed02e649dc56b`, then `3912f59232fe3b260fda201da4e822e69bfed02e649dc56b` is the token.*
 
 <br>
 
+**e. Re-build the report**
+the report in forms of jupyter book can be re-built by command:
+
+```
+jupyter-book build analysis/
+```
+*Note: Make sure you are at the root of this repo.*
 
 
-2. Via MakeFile
 
-a. Still Clone this repo. Same command as above.
+### Via MakeFile
 
-b. Installed all the **dependencies** listed as blow section.
+**a. Still Clone this repo. Same command as above.**
 
-c. `cd` to the root of the local repo, and then run command:
+**b. Installed all the **dependencies** listed as blow section.**
+
+**c. `cd` to the root of the local repo, and then run command:**
 
 ```
 make all
 ```
-d. Now you can access to the most up to date report.
+**d. Now you can access to the most up to date report.**
 
-e. reset the repo to clean, run the command:
+**e. reset the repo to clean, run the command:**
 
 ```
 make clean
