@@ -49,7 +49,7 @@ Documents about Project Manners:
 
    *Note: You can replace `latest` by another specific version.  Please kindly read the **History of Releases** for more versions.*
 
-   
+   <br>
 
    b. Run the docker image
 
@@ -69,7 +69,7 @@ Documents about Project Manners:
    
    *Note: if port 8787 has been allocated, you can replace 8787 by other random four-digit number.*
    
-   
+   <br>
    
    c. Access the file via JupyterLab
    
@@ -78,6 +78,8 @@ Documents about Project Manners:
    *Note: If you choose other number as your port, please replace 8787 by the four-digit number you chose.*
    
    Required token can be obtained on your terminal. For example, `token=3912f59232fe3b260fda201da4e822e69bfed02e649dc56b`, then `token=3912f59232fe3b260fda201da4e822e69bfed02e649dc56b` is the token.
+   
+   <br>
 
 ## History of Releases
 
@@ -87,6 +89,8 @@ Releases relate to each milestone are listed as follows:
 2. Milestone 2: [v2.0.0](https://github.com/DSCI-310/DSCI-310-Group-7/releases/tag/v2.0.0)
 
 more details could be found on the right-hand side panel - **Releases**.
+
+<br>
 
 ##  [licenses](LICENSE.md):
 
