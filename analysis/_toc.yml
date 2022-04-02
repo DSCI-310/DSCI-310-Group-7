@@ -1,0 +1,9 @@
+# Table of contents
+
+format: jb-book
+root: contents
+chapters:
+- file: intro
+- file: exploratory_analysis
+- file: discussion
+- file: references

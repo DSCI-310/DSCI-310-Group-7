@@ -1,0 +1,10 @@
+title: "Zoo Analysis"
+author: "DSCI310-group7"
+date: "2022-4-1"
+sphinx:
+  config:
+    bibtex_reference_style: author_year
+execute:
+  execute_notebooks: force
+bibtex_bibfiles:
+    - references.bib
