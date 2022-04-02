@@ -74,6 +74,7 @@ Open link provided on the console
 2. Via MakeFile
 
 a. Still Clone this repo. Same code as above.
+
 b. Installed all the dependencies listed as blow.
 
 c. `cd` to the root of the local repo, and then run command:
