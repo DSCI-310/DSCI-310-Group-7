@@ -74,14 +74,15 @@ Open link provided on the console
 2. Via MakeFile
 
 a. Still Clone this repo. Same code as above.
+b. Installed all the dependencies listed as blow.
 
-b. `cd` to the root of the local repo, and then run command:
+c. `cd` to the root of the local repo, and then run command:
 
 ```
 make all
 ```
 
-c. reset the repo to clean, run the command:
+d. reset the repo to clean, run the command:
 
 ```
 make clean
