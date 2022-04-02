@@ -26,8 +26,8 @@ Documents about Project Manners:
 <br>
 
 ## Usage
-
-There are two suggested ways to run
+Our analysis report in form of jupyter book is stored at [analysis/_build/html/index.html](analysis/_build/html/index.html).
+In order to preview/reproduce our report, there are two suggested ways:
 
 1. Via Docker
 
@@ -61,7 +61,7 @@ docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work sasiburi/dsci-310-group
 
 <br>
 
-c. Access the file via JupyterLab
+c. Access files via JupyterLab
 
 Open link provided on the console
 
@@ -73,17 +73,18 @@ Open link provided on the console
 
 2. Via MakeFile
 
-a. Still Clone this repo. Same code as above.
+a. Still Clone this repo. Same command as above.
 
-b. Installed all the dependencies listed as blow.
+b. Installed all the **dependencies** listed as blow section.
 
 c. `cd` to the root of the local repo, and then run command:
 
 ```
 make all
 ```
+d. Now you can access to the most up to date report.
 
-d. reset the repo to clean, run the command:
+e. reset the repo to clean, run the command:
 
 ```
 make clean
