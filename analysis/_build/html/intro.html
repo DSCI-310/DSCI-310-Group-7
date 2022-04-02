@@ -37,17 +37,19 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -198,7 +200,7 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>The earth is an amazing planet that cultivates branches of animals. In general, scholars split them into 12 classes including mammals, birds, reptiles, amphibians, fishes, insects, crustaceans, arachnids, echinoderms, worms, mollusks and sponges <span id="id1">[<a class="reference internal" href="references.html#id2">BioExplorer.net, 2022</a>]</span>. The traditional way in animal classification is manually identifying the characteristics and attributing it the mostly close class <span id="id2">[<a class="reference internal" href="references.html#id3">N. Manohar and Kumar, 2016</a>]</span>. However, it is tedious and time consuming, especially when the data set is very huge. A question hereby comes to us, if we can apply K-nearest neighbors (KNN) algorithms in predicting the type an animal belongs to given its related characteristics, such as hair, feathers, etc.? Therefore, in this project, we will show how we use KNN to do classification in animals based on data set <span id="id3">[<a class="reference internal" href="references.html#id5">Repository, 1990</a>]</span> which contains 1 categorical attribute, 17 Boolean-valued attributes and 1 numerical attribute. The categorical attribute appears to be the class attribute. Detailed breakdowns are as follows:</p>
+<p>The earth is an amazing planet that cultivates branches of animals. In general, scholars split them into 12 classes including mammals, birds, reptiles, amphibians, fishes, insects, crustaceans, arachnids, echinoderms, worms, mollusks and sponges <span id="id1">[<a class="reference internal" href="references.html#id2" title="BioExplorer.net. Types of animals. BioExplorer, 2022. URL: https://www.bioexplorer.net/animals/.">BioExplorer.net, 2022</a>]</span>. The traditional way in animal classification is manually identifying the characteristics and attributing it the mostly close class <span id="id2">[<a class="reference internal" href="references.html#id3" title="Y. H. Sharath Kumar N. Manohar and G. H. Kumar. Supervised and unsupervised learning in animal classification. Communications and Informatics (ICACCI), 2016. 2016 International Conference on Advances in Computing.">N. Manohar and Kumar, 2016</a>]</span>. However, it is tedious and time consuming, especially when the data set is very huge. A question hereby comes to us, if we can apply K-nearest neighbors (KNN) algorithms in predicting the type an animal belongs to given its related characteristics, such as hair, feathers, etc.? Therefore, in this project, we will show how we use KNN to do classification in animals based on data set <span id="id3">[<a class="reference internal" href="references.html#id5" title="UCI Machine Learning Repository. Zoo. UCI Machine Learning Repository, 1990. URL: https://archive.ics.uci.edu/ml/datasets/zoo.">Repository, 1990</a>]</span> which contains 1 categorical attribute, 17 Boolean-valued attributes and 1 numerical attribute. The categorical attribute appears to be the class attribute. Detailed breakdowns are as follows:</p>
 <ol class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">animal</span> <span class="pre">name</span></code>: Unique for each instance</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">hair</span></code>: Boolean</p></li>
