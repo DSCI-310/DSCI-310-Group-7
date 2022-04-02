@@ -1,5 +1,4 @@
 import numpy as np
-from sklearn import svm
 
 
 # ' generate standard deviation of predicted array and observed array associated with each k
@@ -15,11 +14,8 @@ from sklearn import svm
 # ' para_optimize(yhat, y_test, 10)
 
 def stdAcc(yhat, y_test, Ks):
-    if isinstance(yhat,svm.SVC)&isinstance(y_test, svm.SVC)&np.char.isnumeric(Ks)&Ks>=2:
-        std_acc = np.zeros((Ks-1))
-    
-        for n in range(1, Ks):
-            std_acc[n - 1] = np.std(yhat == y_test) / np.sqrt(yhat.shape[0])
-        return std_acc
-    else:
-        return("the inputs are not valid.")
+    std_acc = np.zeros((Ks - 1))
+
+    for n in range(1, Ks):
+        std_acc[n - 1] = np.std(yhat == y_test) / np.sqrt(yhat.shape[0])
+    return std_acc
