@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Methods &amp; Results &#8212; Zoo Analysis</title>
+    <title>Methods &amp; Results &#8212; Prediction on Animal Type</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -37,17 +37,19 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -76,7 +78,7 @@
       
       
       
-      <h1 class="site-logo" id="site-title">Zoo Analysis</h1>
+      <h1 class="site-logo" id="site-title">Prediction on Animal Type</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -87,7 +89,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="contents.html">
-   Zoo analysis based on Classification
+   Prediction on Animal Type
   </a>
  </li>
 </ul>
@@ -326,19 +328,6 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="methods-results">
 <h1>Methods &amp; Results<a class="headerlink" href="#methods-results" title="Permalink to this headline">¶</a></h1>
 <p>We are going to use multiple analysis to classify the type of the animals using 16 variables including hair, feathers, eggs, milk, airborne, aquatic, predator, toothed, backbone, breathes, venomous, fins, legs, tail, domestic, catsize as our predictors. To predict the class of a new observation, the algorithms of each type will be further explained before implementation.</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reading the data as a csv from the uci web server, with header = false as the data contains no header</span>
-<span class="c1"># Adding column names to the data</span>
-<span class="n">colm</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;animalName&quot;</span><span class="p">,</span> <span class="s2">&quot;hair&quot;</span><span class="p">,</span> <span class="s2">&quot;feathers&quot;</span><span class="p">,</span> <span class="s2">&quot;eggs&quot;</span><span class="p">,</span> <span class="s2">&quot;milk&quot;</span><span class="p">,</span> <span class="s2">&quot;airborne&quot;</span><span class="p">,</span> <span class="s2">&quot;aquatic&quot;</span><span class="p">,</span> 
-        <span class="s2">&quot;predator&quot;</span><span class="p">,</span> <span class="s2">&quot;toothed&quot;</span><span class="p">,</span> <span class="s2">&quot;backbone&quot;</span><span class="p">,</span> <span class="s2">&quot;breathes&quot;</span><span class="p">,</span> <span class="s2">&quot;venomous&quot;</span><span class="p">,</span> <span class="s2">&quot;fins&quot;</span><span class="p">,</span> 
-        <span class="s2">&quot;legs&quot;</span><span class="p">,</span> <span class="s2">&quot;tail&quot;</span><span class="p">,</span> <span class="s2">&quot;domestic&quot;</span><span class="p">,</span> <span class="s2">&quot;catsize&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">]</span>
-
-<span class="n">zoo_data</span> <span class="o">=</span> <span class="n">pre_process</span><span class="p">(</span><span class="s2">&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/zoo/zoo.data&quot;</span><span class="p">,</span> <span class="n">colm</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>The first thing is to import the data. The data set is downloaded from <span class="xref myst">UCI repository</span>. It is then saved as a csv file in this project repository. Some exploratory data analysis needs to be run before running the actual analyses on the data set. Here is a preview of pre-processed data set:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -360,7 +349,7 @@
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
+      <th>index</th>
       <th>hair</th>
       <th>feathers</th>
       <th>eggs</th>
@@ -484,219 +473,7 @@
 </table>
 </div></div></div>
 </div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Whether the dataset contains missing value: False
-</pre></div>
-</div>
-</div>
-</div>
-<p>Below is a summary of dataset:</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Unnamed: 0</th>
-      <th>hair</th>
-      <th>feathers</th>
-      <th>eggs</th>
-      <th>milk</th>
-      <th>airborne</th>
-      <th>aquatic</th>
-      <th>predator</th>
-      <th>toothed</th>
-      <th>backbone</th>
-      <th>breathes</th>
-      <th>venomous</th>
-      <th>fins</th>
-      <th>legs</th>
-      <th>tail</th>
-      <th>domestic</th>
-      <th>catsize</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>5.000000</td>
-      <td>5.000000</td>
-      <td>5.0</td>
-      <td>5.000000</td>
-      <td>5.000000</td>
-      <td>5.0</td>
-      <td>5.000000</td>
-      <td>5.000000</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>5.000000</td>
-      <td>5.0</td>
-      <td>5.000000</td>
-      <td>5.000000</td>
-      <td>5.000000</td>
-      <td>5.0</td>
-      <td>5.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>2.000000</td>
-      <td>0.800000</td>
-      <td>0.0</td>
-      <td>0.200000</td>
-      <td>0.800000</td>
-      <td>0.0</td>
-      <td>0.200000</td>
-      <td>0.800000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.800000</td>
-      <td>0.0</td>
-      <td>0.200000</td>
-      <td>3.200000</td>
-      <td>0.600000</td>
-      <td>0.0</td>
-      <td>0.800000</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>1.581139</td>
-      <td>0.447214</td>
-      <td>0.0</td>
-      <td>0.447214</td>
-      <td>0.447214</td>
-      <td>0.0</td>
-      <td>0.447214</td>
-      <td>0.447214</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.447214</td>
-      <td>0.0</td>
-      <td>0.447214</td>
-      <td>1.788854</td>
-      <td>0.547723</td>
-      <td>0.0</td>
-      <td>0.447214</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>4.000000</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>2.000000</td>
-      <td>1.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>4.000000</td>
-      <td>1.000000</td>
-      <td>0.0</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>3.000000</td>
-      <td>1.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>4.000000</td>
-      <td>1.000000</td>
-      <td>0.0</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>4.000000</td>
-      <td>1.000000</td>
-      <td>0.0</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>0.0</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.000000</td>
-      <td>0.0</td>
-      <td>1.000000</td>
-      <td>4.000000</td>
-      <td>1.000000</td>
-      <td>0.0</td>
-      <td>1.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>As there aren’t missing values in the data set, we can clearly deduce that the data set is clean according to the data summary we generated above. Since most features are binary and categorical, there is no need to do normalization and standardization.</p>
+<p>It is checked that there aren’t missing values in the data set, we can clearly deduce that the data set is clean according to the data summary we generated above. Since most features are binary and categorical, there is no need to do normalization and standardization.</p>
 <div class="figure align-default" id="f1">
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/fig1.png"><img alt="num" class="bg-primary mb-1" src="_images/fig1.png" style="width: 800px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">A summary table of the data set</span><a class="headerlink" href="#f1" title="Permalink to this image">¶</a></p>
@@ -705,129 +482,26 @@
 <div class="section" id="classification">
 <h2>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h2>
 <p>Now we will use the training set to build an accurate model, whereas the testing set is used to report the accuracy of the models. Here is a list of algorithms we will use in the following section:</p>
-<p>K Nearest Neighbor(KNN)
-<br>
-Decision Tree
-<br>
-Support Vector Machine
-<br>
-Logistic Regression</p>
-<div class="cell tag_hide-input tag_remove-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># extracting the feature that will predict</span>
-<span class="n">feature</span> <span class="o">=</span> <span class="n">zoo_data</span><span class="p">[[</span><span class="s2">&quot;hair&quot;</span><span class="p">,</span> <span class="s2">&quot;feathers&quot;</span><span class="p">,</span> <span class="s2">&quot;eggs&quot;</span><span class="p">,</span> <span class="s2">&quot;milk&quot;</span><span class="p">,</span> <span class="s2">&quot;airborne&quot;</span><span class="p">,</span> 
-                   <span class="s2">&quot;aquatic&quot;</span><span class="p">,</span> <span class="s2">&quot;predator&quot;</span><span class="p">,</span> <span class="s2">&quot;toothed&quot;</span><span class="p">,</span> <span class="s2">&quot;backbone&quot;</span><span class="p">,</span> <span class="s2">&quot;breathes&quot;</span><span class="p">,</span> 
-                   <span class="s2">&quot;venomous&quot;</span><span class="p">,</span> <span class="s2">&quot;fins&quot;</span><span class="p">,</span> <span class="s2">&quot;legs&quot;</span><span class="p">,</span> <span class="s2">&quot;tail&quot;</span><span class="p">,</span> <span class="s2">&quot;domestic&quot;</span><span class="p">,</span> <span class="s2">&quot;catsize&quot;</span><span class="p">]]</span>
-<span class="c1"># making it as a X</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">feature</span>
-<span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The training set and test set are splitted.</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># splitting the dataset 80-20 for train and test</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Training set:&#39;</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>  <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test set:&#39;</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>  <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training set: (80, 16) (80,)
-Test set: (21, 16) (21,)
-</pre></div>
-</div>
-</div>
-</div>
+<ul class="simple">
+<li><p>K Nearest Neighbor(KNN)</p></li>
+<li><p>Decision Tree</p></li>
+<li><p>Support Vector Machine</p></li>
+<li><p>Logistic Regression</p></li>
+</ul>
+<p>To train and evaluate each model, we split the dataset into training and testing sets. We use 80% of the total data to train the models, and the rest of the data is aimed to test the models.</p>
 <div class="section" id="knn">
 <h3>KNN<a class="headerlink" href="#knn" title="Permalink to this headline">¶</a></h3>
 <p>KNN captures the idea of similarity (sometimes called distance, proximity, or closeness)
 with some basic mathematics we might have learned earlier. Basically in terms of geometry we can always calculate the distance between points on a graph. Similarly, using KNN we can group similar points together and predict the target with our feature variables(x).</p>
-<div class="cell tag_hide-input tag_hide-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#training the model for different set of K values and finding the best K value</span>
-<span class="n">Ks</span> <span class="o">=</span> <span class="mi">81</span>
-<span class="n">mean_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Ks</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">std_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Ks</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">ConfustionMx</span> <span class="o">=</span> <span class="p">[];</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Ks</span><span class="p">):</span>
-    
-    <span class="c1">#Train Model and Predict  </span>
-    <span class="n">neigh</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
-    <span class="n">yhat</span><span class="o">=</span><span class="n">neigh</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-    <span class="n">mean_acc</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat</span><span class="p">)</span>
-
-<span class="n">std_acc</span> <span class="o">=</span> <span class="n">stdAcc</span><span class="p">(</span><span class="n">yhat</span><span class="p">,</span><span class="n">y_test</span><span class="p">,</span><span class="n">Ks</span><span class="p">)</span>
-<span class="n">mean_acc</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.        , 0.95238095, 0.95238095, 0.9047619 , 0.85714286,
-       0.80952381, 0.85714286, 0.76190476, 0.76190476, 0.76190476,
-       0.76190476, 0.76190476, 0.76190476, 0.76190476, 0.76190476,
-       0.76190476, 0.76190476, 0.71428571, 0.61904762, 0.61904762,
-       0.61904762, 0.61904762, 0.61904762, 0.61904762, 0.61904762,
-       0.61904762, 0.61904762, 0.61904762, 0.61904762, 0.61904762,
-       0.61904762, 0.61904762, 0.61904762, 0.57142857, 0.57142857,
-       0.57142857, 0.57142857, 0.57142857, 0.57142857, 0.57142857,
-       0.57142857, 0.57142857, 0.57142857, 0.57142857, 0.57142857,
-       0.47619048, 0.42857143, 0.42857143, 0.42857143, 0.33333333,
-       0.33333333, 0.33333333, 0.33333333, 0.33333333, 0.33333333,
-       0.33333333, 0.33333333, 0.33333333, 0.33333333, 0.33333333,
-       0.33333333, 0.33333333, 0.33333333, 0.33333333, 0.33333333,
-       0.33333333, 0.33333333, 0.33333333, 0.33333333, 0.33333333,
-       0.33333333, 0.33333333, 0.33333333, 0.33333333, 0.33333333,
-       0.33333333, 0.33333333, 0.33333333, 0.33333333, 0.33333333])
-</pre></div>
-</div>
-</div>
-</div>
 <div class="figure align-default" id="f2">
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/k_accuracy.png"><img alt="num" class="bg-primary mb-1" src="_images/k_accuracy.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">A plot reveals the relationship between K and corresponding accuracy</span><a class="headerlink" href="#f2" title="Permalink to this image">¶</a></p>
 </div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The best accuracy was with the values 1.0 with k= 1
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finding the K value using Grid Search</span>
-<span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>
-<span class="n">k_vals</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>
-<span class="n">param_grid</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">k_vals</span><span class="p">)</span>
-
-<span class="n">para_optimize</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;n_neighbors&#39;: 1}
-</pre></div>
-</div>
-</div>
-</div>
+<p>As shown in <a class="reference internal" href="#f2"><span class="std std-ref">fig.2</span></a>, less K values provide higher accuracy. To find the best K value, we tuned the hyperparameter using <code class="docutils literal notranslate"><span class="pre">GridSearch</span></code> algorithm. After tuning, the best K value is 1.</p>
 </div>
 <div class="section" id="knn-final-model-evaluation">
 <h3>KNN final model &amp; Evaluation<a class="headerlink" href="#knn-final-model-evaluation" title="Permalink to this headline">¶</a></h3>
-<div class="cell tag_hide-input tag_remove-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># as the best accuracy was with K = 1</span>
-<span class="c1"># using K = 1 for the final KNN model</span>
-<span class="c1"># Final KNN model is here used the splited test part to train again for better training, and better prediction</span>
-<span class="c1"># KNN evaluation is also here scroll through the output</span>
-<span class="n">final_knn_model</span> <span class="o">=</span> <span class="n">finalModel</span><span class="p">(</span><span class="s2">&quot;KNN&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>After fitting the model using <code class="docutils literal notranslate"><span class="pre">K=1</span></code>, we evaluate the KNN model by Cross Validation and calculating the precision, recall, f1-score and support.</p>
 <p>KNN Cross Validation Result:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -849,8 +523,8 @@ with some basic mathematics we might have learned earlier. Basically in terms of
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
-      <th>0</th>
+      <th>criteria</th>
+      <th>score</th>
     </tr>
   </thead>
   <tbody>
@@ -899,7 +573,7 @@ with some basic mathematics we might have learned earlier. Basically in terms of
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
+      <th>index</th>
       <th>precision</th>
       <th>recall</th>
       <th>f1-score</th>
@@ -991,72 +665,17 @@ possible consequences, including chance event outcomes, resource costs, and util
 The goal of using a Decision Tree is to create a training model that can use to predict
 the class or value of the target variable by learning simple decision rules inferred
 from prior data(training data).</p>
-<div class="cell tag_hide-input tag_hide-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ks</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="n">mean_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Ks</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">std_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Ks</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">ConfustionMx</span> <span class="o">=</span> <span class="p">[];</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Ks</span><span class="p">):</span>
-    <span class="c1"># Train Model and Predict  </span>
-    <span class="n">decTree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s2">&quot;entropy&quot;</span><span class="p">,</span> <span class="n">max_depth</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
-    <span class="n">decTree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
-    <span class="n">yhat</span><span class="o">=</span><span class="n">decTree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-    <span class="n">mean_acc</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat</span><span class="p">)</span>
-
-<span class="n">std_acc</span> <span class="o">=</span> <span class="n">stdAcc</span><span class="p">(</span><span class="n">yhat</span><span class="p">,</span><span class="n">y_test</span><span class="p">,</span><span class="n">Ks</span><span class="p">)</span>
-<span class="n">mean_acc</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.57142857, 0.61904762, 0.80952381, 0.80952381, 0.9047619 ,
-       0.85714286, 0.9047619 , 0.9047619 , 0.9047619 , 0.85714286,
-       0.9047619 , 0.85714286, 0.85714286, 0.9047619 , 0.9047619 ,
-       0.9047619 , 0.85714286, 0.9047619 , 0.85714286, 0.85714286,
-       0.85714286, 0.9047619 , 0.85714286, 0.9047619 , 0.9047619 ,
-       0.85714286, 0.9047619 , 0.9047619 , 0.9047619 , 0.9047619 ,
-       0.9047619 , 0.9047619 , 0.9047619 , 0.9047619 , 0.85714286,
-       0.9047619 , 0.9047619 , 0.9047619 , 0.9047619 , 0.9047619 ,
-       0.9047619 , 0.9047619 , 0.9047619 , 0.9047619 , 0.85714286,
-       0.9047619 , 0.9047619 , 0.9047619 , 0.9047619 ])
-</pre></div>
-</div>
-</div>
-</div>
 <div class="figure align-default" id="f3">
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/dt_accuracy.png"><img alt="num" class="bg-primary mb-1" src="_images/dt_accuracy.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">A plot reveals the relationship between deepth and corresponding accuracy</span><a class="headerlink" href="#f3" title="Permalink to this image">¶</a></p>
 </div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The best accuracy was with the values 0.9047619047619048 with max_depth = 5
-</pre></div>
-</div>
-</div>
-</div>
+<p>As shown in the <a class="reference internal" href="#f3"><span class="std std-ref">fig.3</span></a>, the best depth of the Decision Tree is around small. We can confirm that the best value of the depth is 5 after tuning the hyperparameter and calculating the accuracy.</p>
 </div>
 <div class="section" id="decision-tree-final-model-evaluation">
 <h3>Decision Tree final model &amp; evaluation<a class="headerlink" href="#decision-tree-final-model-evaluation" title="Permalink to this headline">¶</a></h3>
-<div class="cell tag_hide-input tag_remove-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># As Best is max depth = 5</span>
-<span class="c1"># using max depth = 5 for the final decision tree</span>
-<span class="c1"># Final decision tree is here used the split test part to train again for better training, and better prediction</span>
-<span class="c1"># DT evaluation is also here scroll through the output</span>
-<span class="n">Final_dec_Tree</span> <span class="o">=</span> <span class="n">finalModel</span><span class="p">(</span><span class="s2">&quot;DT&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>After training the model, we obtain the Cross Validation score, as well as the precision, recall, f1-score and support.</p>
 <p>DT Cross Validation Result:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_cross_validate_result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../results/csv/dt_cross_validate_result.csv&quot;</span><span class="p">)</span>
-<span class="n">dt_cross_validate_result</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -1076,8 +695,8 @@ from prior data(training data).</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
-      <th>0</th>
+      <th>criteria</th>
+      <th>score</th>
     </tr>
   </thead>
   <tbody>
@@ -1126,7 +745,7 @@ from prior data(training data).</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
+      <th>index</th>
       <th>precision</th>
       <th>recall</th>
       <th>f1-score</th>
@@ -1220,15 +839,6 @@ data into classes.</p>
 </div>
 <div class="section" id="svm-training-model-jaccard-score-final-model-and-evaluation">
 <h3>SVM training model Jaccard Score, final model and evaluation<a class="headerlink" href="#svm-training-model-jaccard-score-final-model-and-evaluation" title="Permalink to this headline">¶</a></h3>
-<div class="cell tag_hide-input tag_remove-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Final SVM is here used the splited test part to train again for better training, and better prediction</span>
-<span class="c1">#svm evaluation train and final model is also here scroll through the output</span>
-<span class="n">svec</span> <span class="o">=</span> <span class="n">finalModel</span><span class="p">(</span><span class="s2">&quot;SVM&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>SVM Classification Report:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -1250,7 +860,7 @@ data into classes.</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
+      <th>index</th>
       <th>precision</th>
       <th>recall</th>
       <th>f1-score</th>
@@ -1341,15 +951,6 @@ data into classes.</p>
 </div>
 <div class="section" id="logistic-regression-training-model-jaccard-score-final-model-and-evaluation">
 <h3>Logistic Regression training model Jaccard Score, final model and evaluation<a class="headerlink" href="#logistic-regression-training-model-jaccard-score-final-model-and-evaluation" title="Permalink to this headline">¶</a></h3>
-<div class="cell tag_hide-input tag_remove-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># final LR model is here used the splited test part to train again for better training, and better prediction</span>
-<span class="c1"># LR evaluation train and final model is also here scroll through the output</span>
-<span class="n">LR</span> <span class="o">=</span> <span class="n">finalModel</span><span class="p">(</span><span class="s2">&quot;LR&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>LR Classification Report:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -1371,7 +972,7 @@ data into classes.</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
+      <th>index</th>
       <th>precision</th>
       <th>recall</th>
       <th>f1-score</th>
@@ -1505,7 +1106,7 @@ data into classes.</p>
     <footer class="footer">
   <p>
     
-      By DSCI310-group7<br/>
+      By Elaine Zhou, Jossie Jiang, Swakhar Poddar & Weihao Sun<br/>
     
         &copy; Copyright 2021.<br/>
   </p>

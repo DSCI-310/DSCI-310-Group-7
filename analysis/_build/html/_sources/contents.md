@@ -1,4 +1,4 @@
-# Zoo analysis based on Classification
+# Prediction on Animal Type
 
 ## Summary
 

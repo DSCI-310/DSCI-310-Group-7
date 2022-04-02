@@ -3,7 +3,7 @@
 format: jb-book
 root: contents
 chapters:
-- file: intro
-- file: exploratory_analysis
-- file: discussion
-- file: references
+- file: intro.md
+- file: exploratory_analysis.ipynb
+- file: discussion.md
+- file: references.md

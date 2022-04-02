@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction &#8212; Zoo Analysis</title>
+    <title>Introduction &#8212; Prediction on Animal Type</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -37,22 +37,24 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Methods &amp; Results" href="exploratory_analysis.html" />
-    <link rel="prev" title="Zoo analysis based on Classification" href="contents.html" />
+    <link rel="prev" title="Prediction on Animal Type" href="contents.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -76,7 +78,7 @@
       
       
       
-      <h1 class="site-logo" id="site-title">Zoo Analysis</h1>
+      <h1 class="site-logo" id="site-title">Prediction on Animal Type</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -87,7 +89,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="contents.html">
-   Zoo analysis based on Classification
+   Prediction on Animal Type
   </a>
  </li>
 </ul>
@@ -198,7 +200,7 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>The earth is an amazing planet that cultivates branches of animals. In general, scholars split them into 12 classes including mammals, birds, reptiles, amphibians, fishes, insects, crustaceans, arachnids, echinoderms, worms, mollusks and sponges(<a class="reference external" href="http://BioExploer.net">BioExploer.net</a>., 2022). The traditional way in animal classification is manually identifying the characteristics and attributing it the mostly close class (Manohar, Sharath, &amp; Kumar, 2016). However, it is tedious and time consuming, especially when the data set is very huge. A question hereby comes to us, if we can apply K-nearest neighbors (KNN) algorithms in predicting the type an animal belongs to given its related characteristics, such as hair, feathers, etc.? Therefore, in this project, we will show how we use KNN to do classification in animals based on data set Zoo(1990) which contains 1 categorical attribute, 17 Boolean-valued attributes and 1 numerical attribute. The categorical attribute appears to be the class attribute. Detailed breakdowns are as follows:</p>
+<p>The earth is an amazing planet that cultivates branches of animals. In general, scholars split them into 12 classes including mammals, birds, reptiles, amphibians, fishes, insects, crustaceans, arachnids, echinoderms, worms, mollusks and sponges.[‘<a class="reference external" href="http://BioExplorer.net">BioExplorer.net</a>’]. The traditional way in animal classification is manually identifying the characteristics and attributing it the mostly close class (Manohar, Sharath, &amp; Kumar, 2016). However, it is tedious and time consuming, especially when the data set is very huge. A question hereby comes to us, if we can apply K-nearest neighbors (KNN) algorithms in predicting the type an animal belongs to given its related characteristics, such as hair, feathers, etc.? Therefore, in this project, we will show how we use KNN to do classification in animals based on data set Zoo(1990) which contains 1 categorical attribute, 17 Boolean-valued attributes and 1 numerical attribute. The categorical attribute appears to be the class attribute. Detailed breakdowns are as follows:</p>
 <ol class="simple">
 <li><p>​          animal name: Unique for each instance</p></li>
 <li><p>​          hair: Boolean</p></li>
@@ -250,7 +252,7 @@
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Zoo analysis based on Classification</p>
+            <p class="prev-next-title">Prediction on Animal Type</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="exploratory_analysis.html" title="next page">
@@ -267,7 +269,7 @@
     <footer class="footer">
   <p>
     
-      By DSCI310-group7<br/>
+      By Elaine Zhou, Jossie Jiang, Swakhar Poddar & Weihao Sun<br/>
     
         &copy; Copyright 2021.<br/>
   </p>

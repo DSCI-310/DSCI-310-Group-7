@@ -1,6 +1,6 @@
-title: "Zoo Analysis"
-author: "DSCI310-group7"
-date: "2022-4-1"
+title: "Prediction on Animal Type"
+author: "Elaine Zhou, Jossie Jiang, Swakhar Poddar & Weihao Sun"
+date: "2022-4-2"
 sphinx:
   config:
     bibtex_reference_style: author_year
