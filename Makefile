@@ -23,7 +23,7 @@ analysis/_build/html/index.html: analysis/_config.yml analysis/_toc.yml analysis
 
 
 clean :
-	rm -f data/raw/student-mat.csv
-	rm -f data/*.csv
+	rm -f data/raw/zoo.data
+	rm -f data/processed/zoo.csv
 	rm -rf results
 	rm -rf analysis/_build
