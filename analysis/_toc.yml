@@ -4,6 +4,6 @@ format: jb-book
 root: contents
 chapters:
 - file: intro
-- file: exploratory_analysis
+- file: analysis
 - file: discussion
 - file: references
