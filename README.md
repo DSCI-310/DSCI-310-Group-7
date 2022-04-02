@@ -77,7 +77,7 @@ Documents about Project Manners:
    
    *Note: If you choose other number as your port, please replace 8787 by the four-digit number you chose.*
    
-   Required token can be obtained on your terminal. For example, `token=3912f59232fe3b260fda201da4e822e69bfed02e649dc56b`, then `token=3912f59232fe3b260fda201da4e822e69bfed02e649dc56b` is the token.
+   Required token can be obtained on your terminal. For example, `token=3912f59232fe3b260fda201da4e822e69bfed02e649dc56b`, then `3912f59232fe3b260fda201da4e822e69bfed02e649dc56b` is the token.
    
    <br>
 
