@@ -54,7 +54,7 @@ yhat = LR.predict(X_test)
 
 report = classification_report(y_test, yhat, output_dict=True)
 df = pd.DataFrame(report).transpose()
-df.to_csv(export_loc + "/lr_classification_report.csv")
+df.to_csv(export_loc + "csv/lr_classification_report.csv")
 
 # Final SVM is here used the splited test part to train again for better training, and better prediction
 # svm evaluation train and final model is also here scroll through the output
@@ -63,4 +63,4 @@ yhat = svec.predict(X_test)
 
 report = classification_report(y_test, yhat, output_dict=True)
 df = pd.DataFrame(report).transpose()
-df.to_csv(export_loc + "/svm_classification_report.csv")
+df.to_csv(export_loc + "csv/svm_classification_report.csv")

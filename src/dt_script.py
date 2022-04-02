@@ -61,7 +61,7 @@ for n in range(1,Ks):
 std_acc = stdAcc(yhat, y_test, Ks)
 
 line_plot(Ks, mean_acc, std_acc, "Max Depth", "Accuracy", "Max Depth vs. Accuracy")
-plt.savefig(export_loc + "/dt_accuracy.png")
+plt.savefig(export_loc + "figures/dt_accuracy.png")
 
 # As Best is max depth = 5
 # using max depth = 5 for the final decision tree
@@ -71,8 +71,8 @@ Final_dec_Tree = finalModel("DT", 5, X_train, X_test, y_train, y_test, X, y)
 
 # cross-validation on decision tree
 cv_results_dt = cross_validate(Final_dec_Tree, X_train, y_train, cv=4, return_train_score=True);
-pd.DataFrame(cv_results_dt).mean().to_csv(export_loc + "/dt_cross_validate_result.csv")
+pd.DataFrame(cv_results_dt).mean().to_csv(export_loc + "csv/dt_cross_validate_result.csv")
 yhat = Final_dec_Tree.predict(X_test)
 report = classification_report(y_test, yhat, output_dict=True)
 df = pd.DataFrame(report).transpose()
-df.to_csv(export_loc + "/dt_classification_report.csv")
+df.to_csv(export_loc + "csv/dt_classification_report.csv")
