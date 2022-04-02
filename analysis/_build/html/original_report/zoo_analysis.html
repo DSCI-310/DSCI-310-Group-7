@@ -1,0 +1,1459 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediction on Animal Type &#8212; Zoo Analysis</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Zoo Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../contents.html">
+   Zoo analysis based on Classification
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../analysis.html">
+   Methods &amp; Results
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../discussion.html">
+   Discussion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/original_report/zoo_analysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/original_report/zoo_analysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods-results">
+   Methods &amp; Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification">
+     Classification
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#knn">
+       KNN
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#knn-final-model-evaluation">
+       KNN final model &amp; Evaluation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#decision-tree">
+       Decision Tree
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#decision-tree-final-model-evaluation">
+       Decision Tree final model &amp; evaluation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#support-vector-machine">
+       Support Vector Machine
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#svm-training-model-jaccard-score-final-model-and-evaluation">
+       SVM training model Jaccard Score, final model and evaluation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#logistic-regression">
+       Logistic Regression
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#logistic-regression-training-model-jaccard-score-final-model-and-evaluation">
+       Logistic Regression training model Jaccard Score, final model and evaluation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discussion">
+   Discussion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#citation">
+   Citation
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Prediction on Animal Type</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods-results">
+   Methods &amp; Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification">
+     Classification
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#knn">
+       KNN
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#knn-final-model-evaluation">
+       KNN final model &amp; Evaluation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#decision-tree">
+       Decision Tree
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#decision-tree-final-model-evaluation">
+       Decision Tree final model &amp; evaluation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#support-vector-machine">
+       Support Vector Machine
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#svm-training-model-jaccard-score-final-model-and-evaluation">
+       SVM training model Jaccard Score, final model and evaluation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#logistic-regression">
+       Logistic Regression
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#logistic-regression-training-model-jaccard-score-final-model-and-evaluation">
+       Logistic Regression training model Jaccard Score, final model and evaluation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discussion">
+   Discussion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#citation">
+   Citation
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="prediction-on-animal-type">
+<h1>Prediction on Animal Type<a class="headerlink" href="#prediction-on-animal-type" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>The data set we will be using is Zoo (1990) provided by UC Irvine Machine Learning Repository. It stores data with 7 classes of animals and their related characteristics including animal name, hair, feathers and other attributes. In this project, we will use classification as our method to predict a most likely type of a given animal.</p>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The earth is an amazing planet that cultivates branches of animals. In general, scholars split them into 12 classes including mammals, birds, reptiles, amphibians, fishes, insects, crustaceans, arachnids, echinoderms, worms, mollusks and sponges(<a class="reference external" href="http://BioExploer.net">BioExploer.net</a>., 2022). The traditional way in animal classification is manually identifying the characteristics and attributing it the mostly close class (Manohar, Sharath, &amp; Kumar, 2016). However, it is tedious and time consuming, especially when the data set is very huge. A question hereby comes to us, if we can apply K-nearest neighbors (KNN) algorithms in predicting the type an animal belongs to given its related characteristics, such as hair, feathers, etc.? Therefore, in this project, we will show how we use KNN to do classification in animals based on data set Zoo(1990) which contains 1 categorical attribute, 17 Boolean-valued attributes and 1 numerical attribute. The categorical attribute appears to be the class attribute. Detailed breakdowns are as follows:</p>
+<ol class="simple">
+<li><p>animal name: Unique for each instance</p></li>
+<li><p>hair: Boolean</p></li>
+<li><p>feathers: Boolean</p></li>
+<li><p>eggs: Boolean</p></li>
+<li><p>milk: Boolean</p></li>
+<li><p>airborne: Boolean</p></li>
+<li><p>aquatic: Boolean</p></li>
+<li><p>predator: Boolean</p></li>
+<li><p>toothed: Boolean</p></li>
+<li><p>backbone: Boolean</p></li>
+<li><p>breathes: Boolean</p></li>
+<li><p>venomous: Boolean</p></li>
+<li><p>fins: Boolean</p></li>
+<li><p>legs: Numeric (set of values: {0,2,4,5,6,8})</p></li>
+<li><p>tail: Boolean</p></li>
+<li><p>domestic: Boolean</p></li>
+<li><p>catsize: Boolean</p></li>
+<li><p>type: Numeric (integer values in range [1,7])</p></li>
+</ol>
+</div>
+<div class="section" id="methods-results">
+<h2>Methods &amp; Results<a class="headerlink" href="#methods-results" title="Permalink to this headline">¶</a></h2>
+<p>We are going to use multiple analysis to classify the type of the animals using 16 variables including hair, feathers, eggs, milk, airborne, aquatic, predator, toothed, backbone, breathes, venomous, fins, legs, tail, domestic, catsize as our predictors. To predict the class of a new observation, the algorithms of each type will be further explained before implementation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">GridSearchCV</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="s1">&#39;..&#39;</span> <span class="p">)</span>
+<span class="kn">from</span> <span class="nn">src.pre_processing</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">src.train_and_predict_model</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">src.line_plot</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">src.para_optimize</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">src.std_acc</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">src.line_plot</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">GridSearchCV</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">sys</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="s1">&#39;..&#39;</span> <span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reading the data as a csv from the uci web server, with header = false as the data contains no header</span>
+<span class="c1"># Adding column names to the data</span>
+<span class="n">colm</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;animalName&quot;</span><span class="p">,</span> <span class="s2">&quot;hair&quot;</span><span class="p">,</span> <span class="s2">&quot;feathers&quot;</span><span class="p">,</span> <span class="s2">&quot;eggs&quot;</span><span class="p">,</span> <span class="s2">&quot;milk&quot;</span><span class="p">,</span> <span class="s2">&quot;airborne&quot;</span><span class="p">,</span> <span class="s2">&quot;aquatic&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;predator&quot;</span><span class="p">,</span> <span class="s2">&quot;toothed&quot;</span><span class="p">,</span> <span class="s2">&quot;backbone&quot;</span><span class="p">,</span> <span class="s2">&quot;breathes&quot;</span><span class="p">,</span> <span class="s2">&quot;venomous&quot;</span><span class="p">,</span> <span class="s2">&quot;fins&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;legs&quot;</span><span class="p">,</span> <span class="s2">&quot;tail&quot;</span><span class="p">,</span> <span class="s2">&quot;domestic&quot;</span><span class="p">,</span> <span class="s2">&quot;catsize&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">]</span>
+
+<span class="n">zoo_data</span> <span class="o">=</span> <span class="n">pre_process</span><span class="p">(</span><span class="s2">&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/zoo/zoo.data&quot;</span><span class="p">,</span> <span class="n">colm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#uncomment this line if the server is down for fetching the data</span>
+<span class="c1">#zoo_data = pd.read_csv(&quot;./data/zoo.csv&quot;)</span>
+<span class="n">zoo_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>animalName</th>
+      <th>hair</th>
+      <th>feathers</th>
+      <th>eggs</th>
+      <th>milk</th>
+      <th>airborne</th>
+      <th>aquatic</th>
+      <th>predator</th>
+      <th>toothed</th>
+      <th>backbone</th>
+      <th>breathes</th>
+      <th>venomous</th>
+      <th>fins</th>
+      <th>legs</th>
+      <th>tail</th>
+      <th>domestic</th>
+      <th>catsize</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>aardvark</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>antelope</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>bass</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>bear</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>boar</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The first thing is to import the data. The data set is downloaded from <span class="xref myst">UCI repository</span>. It is then saved as a csv file in this project repository. Some exploratory data analysis needs to be run before running the actual analyses on the data set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># saving the data as a csv file in our data directory</span>
+<span class="c1"># zoo_data.to_csv(r&#39;./data/zoo.csv&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check if there are missing values</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Whether the dataset contains missing value: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">zoo_data</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Whether the dataset contains missing value: False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># drop the first column</span>
+<span class="c1">#zoo_data = zoo_data.drop(zoo_data.columns[[0,1]], axis=1)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a summary of the data set, including descriptive statistics</span>
+<span class="n">zoo_data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>hair</th>
+      <th>feathers</th>
+      <th>eggs</th>
+      <th>milk</th>
+      <th>airborne</th>
+      <th>aquatic</th>
+      <th>predator</th>
+      <th>toothed</th>
+      <th>backbone</th>
+      <th>breathes</th>
+      <th>venomous</th>
+      <th>fins</th>
+      <th>legs</th>
+      <th>tail</th>
+      <th>domestic</th>
+      <th>catsize</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>101.000000</td>
+      <td>101.000000</td>
+      <td>101.000000</td>
+      <td>101.000000</td>
+      <td>101.000000</td>
+      <td>101.000000</td>
+      <td>101.000000</td>
+      <td>101.000000</td>
+      <td>101.000000</td>
+      <td>101.000000</td>
+      <td>101.000000</td>
+      <td>101.000000</td>
+      <td>101.000000</td>
+      <td>101.000000</td>
+      <td>101.000000</td>
+      <td>101.000000</td>
+      <td>101.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.425743</td>
+      <td>0.198020</td>
+      <td>0.584158</td>
+      <td>0.405941</td>
+      <td>0.237624</td>
+      <td>0.356436</td>
+      <td>0.554455</td>
+      <td>0.603960</td>
+      <td>0.821782</td>
+      <td>0.792079</td>
+      <td>0.079208</td>
+      <td>0.168317</td>
+      <td>2.841584</td>
+      <td>0.742574</td>
+      <td>0.128713</td>
+      <td>0.435644</td>
+      <td>2.831683</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.496921</td>
+      <td>0.400495</td>
+      <td>0.495325</td>
+      <td>0.493522</td>
+      <td>0.427750</td>
+      <td>0.481335</td>
+      <td>0.499505</td>
+      <td>0.491512</td>
+      <td>0.384605</td>
+      <td>0.407844</td>
+      <td>0.271410</td>
+      <td>0.376013</td>
+      <td>2.033385</td>
+      <td>0.439397</td>
+      <td>0.336552</td>
+      <td>0.498314</td>
+      <td>2.102709</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>2.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>4.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>4.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>8.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>7.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>After checking whether there are missing values in the data set, we can clearly deduce that the data set is clean according to the data summary we generated above. Since most features are binary and categorical, there is no need to do normalization and standardization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a visualization of the dataset</span>
+<span class="n">zoo_data</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;fig.1 Histogram of all features&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/zoo_analysis_11_0.png" src="../_images/zoo_analysis_11_0.png" />
+</div>
+</div>
+<p>As shown in fig.1, the histograms of each feature are generated. The ones with skewed distribution might be more decisive in the prediction. However, since the data set is relatively small, all the features except the <code class="docutils literal notranslate"><span class="pre">animalName</span></code> are going to be used to predict. In the next part, we are going to split the data, into the training set and testing set. After that, different classification models will be trained and evaluated.</p>
+<div class="section" id="classification">
+<h3>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h3>
+<p>Now we will use the training set to build an accurate model, whereas the testing set is used to report the accuracy of the models. Here is a list of algorithms we will use in the following section:</p>
+<p>K Nearest Neighbor(KNN)
+<br>
+Decision Tree
+<br>
+Support Vector Machine
+<br>
+Logistic Regression</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># extracting the feature that will predict</span>
+<span class="n">feature</span> <span class="o">=</span> <span class="n">zoo_data</span><span class="p">[[</span><span class="s2">&quot;hair&quot;</span><span class="p">,</span> <span class="s2">&quot;feathers&quot;</span><span class="p">,</span> <span class="s2">&quot;eggs&quot;</span><span class="p">,</span> <span class="s2">&quot;milk&quot;</span><span class="p">,</span> <span class="s2">&quot;airborne&quot;</span><span class="p">,</span> 
+                   <span class="s2">&quot;aquatic&quot;</span><span class="p">,</span> <span class="s2">&quot;predator&quot;</span><span class="p">,</span> <span class="s2">&quot;toothed&quot;</span><span class="p">,</span> <span class="s2">&quot;backbone&quot;</span><span class="p">,</span> <span class="s2">&quot;breathes&quot;</span><span class="p">,</span> 
+                   <span class="s2">&quot;venomous&quot;</span><span class="p">,</span> <span class="s2">&quot;fins&quot;</span><span class="p">,</span> <span class="s2">&quot;legs&quot;</span><span class="p">,</span> <span class="s2">&quot;tail&quot;</span><span class="p">,</span> <span class="s2">&quot;domestic&quot;</span><span class="p">,</span> <span class="s2">&quot;catsize&quot;</span><span class="p">]]</span>
+<span class="c1"># making it as a X</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">feature</span>
+<span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>hair</th>
+      <th>feathers</th>
+      <th>eggs</th>
+      <th>milk</th>
+      <th>airborne</th>
+      <th>aquatic</th>
+      <th>predator</th>
+      <th>toothed</th>
+      <th>backbone</th>
+      <th>breathes</th>
+      <th>venomous</th>
+      <th>fins</th>
+      <th>legs</th>
+      <th>tail</th>
+      <th>domestic</th>
+      <th>catsize</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># taking the y values, the type</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">zoo_data</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1
+1    1
+2    4
+3    1
+4    1
+Name: type, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># splitting the dataset 80-20 for train and test</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Training set:&#39;</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>  <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test set:&#39;</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>  <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training set: (80, 16) (80,)
+Test set: (21, 16) (21,)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="knn">
+<h4>KNN<a class="headerlink" href="#knn" title="Permalink to this headline">¶</a></h4>
+<p>KNN captures the idea of similarity (sometimes called distance, proximity, or closeness)
+with some basic mathematics we might have learned earlier. Basically in terms of geometry we can always calculate the distance between points on a graph. Similarly, using KNN we can group similar points together and predict the target with our feature variables(x).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#training the model for different set of K values and finding the best K value</span>
+<span class="n">Ks</span> <span class="o">=</span> <span class="mi">81</span>
+<span class="n">mean_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Ks</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">std_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Ks</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">ConfustionMx</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Ks</span><span class="p">):</span>
+    
+    <span class="c1">#Train Model and Predict  </span>
+    <span class="n">neigh</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+    <span class="n">yhat</span><span class="o">=</span><span class="n">neigh</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">mean_acc</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat</span><span class="p">)</span>
+
+<span class="n">std_acc</span> <span class="o">=</span> <span class="n">stdAcc</span><span class="p">(</span><span class="n">yhat</span><span class="p">,</span><span class="n">y_test</span><span class="p">,</span><span class="n">Ks</span><span class="p">)</span>
+<span class="n">mean_acc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.        , 0.95238095, 0.95238095, 0.9047619 , 0.85714286,
+       0.80952381, 0.85714286, 0.76190476, 0.76190476, 0.76190476,
+       0.76190476, 0.76190476, 0.76190476, 0.76190476, 0.76190476,
+       0.76190476, 0.76190476, 0.71428571, 0.61904762, 0.61904762,
+       0.61904762, 0.61904762, 0.61904762, 0.61904762, 0.61904762,
+       0.61904762, 0.61904762, 0.61904762, 0.61904762, 0.61904762,
+       0.61904762, 0.61904762, 0.61904762, 0.57142857, 0.57142857,
+       0.57142857, 0.57142857, 0.57142857, 0.57142857, 0.57142857,
+       0.57142857, 0.57142857, 0.57142857, 0.57142857, 0.57142857,
+       0.47619048, 0.42857143, 0.42857143, 0.42857143, 0.33333333,
+       0.33333333, 0.33333333, 0.33333333, 0.33333333, 0.33333333,
+       0.33333333, 0.33333333, 0.33333333, 0.33333333, 0.33333333,
+       0.33333333, 0.33333333, 0.33333333, 0.33333333, 0.33333333,
+       0.33333333, 0.33333333, 0.33333333, 0.33333333, 0.33333333,
+       0.33333333, 0.33333333, 0.33333333, 0.33333333, 0.33333333,
+       0.33333333, 0.33333333, 0.33333333, 0.33333333, 0.33333333])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plotting the accuracy for different K values</span>
+<span class="c1"># plt.plot(range(1,Ks),mean_acc,&#39;g&#39;)</span>
+<span class="c1"># plt.fill_between(range(1,Ks), mean_acc - 1 * std_acc, mean_acc + 1 * std_acc, alpha=0.10)</span>
+<span class="c1"># plt.legend((&#39;Accuracy &#39;, &#39;+/- 3xstd&#39;))</span>
+<span class="c1"># plt.ylabel(&#39;Accuracy &#39;)</span>
+<span class="c1"># plt.xlabel(&#39;Number of Neighbors (K)&#39;)</span>
+<span class="c1"># plt.title(&#39;fig.2 Number of Neighbors vs. Accuracy&#39;)</span>
+<span class="c1"># plt.tight_layout()</span>
+<span class="n">line_plot</span><span class="p">(</span><span class="n">Ks</span><span class="p">,</span> <span class="n">mean_acc</span><span class="p">,</span> <span class="n">std_acc</span><span class="p">,</span> <span class="s2">&quot;Number of Neighbors (K)&quot;</span><span class="p">,</span> <span class="s2">&quot;Accuracy&quot;</span><span class="p">,</span> <span class="s2">&quot;fig.2 Number of Neighbors vs. Accuracy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/zoo_analysis_19_0.png" src="../_images/zoo_analysis_19_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The best accuracy was with the values&quot;</span><span class="p">,</span> <span class="n">mean_acc</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="s2">&quot;with k=&quot;</span><span class="p">,</span> <span class="n">mean_acc</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The best accuracy was with the values 1.0 with k= 1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finding the K value using Grid Search</span>
+<span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>
+<span class="n">k_vals</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">k_vals</span><span class="p">)</span>
+
+<span class="n">para_optimize</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;n_neighbors&#39;: 1}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="knn-final-model-evaluation">
+<h4>KNN final model &amp; Evaluation<a class="headerlink" href="#knn-final-model-evaluation" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># as the best accuracy was with K = 1</span>
+<span class="c1"># using K = 1 for the final KNN model</span>
+<span class="c1"># Final KNN model is here used the splited test part to train again for better training, and better prediction</span>
+<span class="c1"># KNN evaluation is also here scroll through the output</span>
+<span class="n">final_knn_model</span> <span class="o">=</span> <span class="n">finalModel</span><span class="p">(</span><span class="s2">&quot;KNN&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNN INFO: So the accuracy score for K = 1 is 1.0
+
+KNN Cross Validate: 
+
+fit_time       0.000539
+score_time     0.000792
+test_score     0.936847
+train_score    1.000000
+dtype: float64
+
+KNN Classification report: 
+
+              precision    recall  f1-score   support
+
+           1       1.00      1.00      1.00         7
+           2       1.00      1.00      1.00         5
+           4       1.00      1.00      1.00         1
+           5       1.00      1.00      1.00         1
+           6       1.00      1.00      1.00         3
+           7       1.00      1.00      1.00         4
+
+    accuracy                           1.00        21
+   macro avg       1.00      1.00      1.00        21
+weighted avg       1.00      1.00      1.00        21
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="decision-tree">
+<h4>Decision Tree<a class="headerlink" href="#decision-tree" title="Permalink to this headline">¶</a></h4>
+<p>A decision tree is a decision support tool that uses a tree-like model of decisions and their
+possible consequences, including chance event outcomes, resource costs, and utility
+The goal of using a Decision Tree is to create a training model that can use to predict
+the class or value of the target variable by learning simple decision rules inferred
+from prior data(training data).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ks</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">mean_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Ks</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">std_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Ks</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">ConfustionMx</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Ks</span><span class="p">):</span>
+    <span class="c1"># Train Model and Predict  </span>
+    <span class="n">decTree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s2">&quot;entropy&quot;</span><span class="p">,</span> <span class="n">max_depth</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">decTree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+    <span class="n">yhat</span><span class="o">=</span><span class="n">decTree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">mean_acc</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat</span><span class="p">)</span>
+
+<span class="n">std_acc</span> <span class="o">=</span> <span class="n">stdAcc</span><span class="p">(</span><span class="n">yhat</span><span class="p">,</span><span class="n">y_test</span><span class="p">,</span><span class="n">Ks</span><span class="p">)</span>
+<span class="n">mean_acc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.57142857, 0.61904762, 0.80952381, 0.80952381, 0.9047619 ,
+       0.85714286, 0.9047619 , 0.9047619 , 0.9047619 , 0.85714286,
+       0.9047619 , 0.85714286, 0.85714286, 0.9047619 , 0.9047619 ,
+       0.9047619 , 0.85714286, 0.9047619 , 0.85714286, 0.85714286,
+       0.85714286, 0.9047619 , 0.85714286, 0.9047619 , 0.9047619 ,
+       0.85714286, 0.9047619 , 0.9047619 , 0.9047619 , 0.9047619 ,
+       0.9047619 , 0.9047619 , 0.9047619 , 0.9047619 , 0.85714286,
+       0.9047619 , 0.9047619 , 0.9047619 , 0.9047619 , 0.9047619 ,
+       0.9047619 , 0.9047619 , 0.9047619 , 0.9047619 , 0.85714286,
+       0.9047619 , 0.9047619 , 0.9047619 , 0.9047619 ])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plt.plot(range(1,Ks),mean_acc,&#39;g&#39;)</span>
+<span class="c1"># plt.fill_between(range(1,Ks),mean_acc - 1 * std_acc,mean_acc + 1 * std_acc, alpha=0.10)</span>
+<span class="c1"># plt.legend((&#39;Accuracy &#39;, &#39;+/- 3xstd&#39;))</span>
+<span class="c1"># plt.ylabel(&#39;Accuracy &#39;)</span>
+<span class="c1"># plt.xlabel(&#39;Max_Depth&#39;)</span>
+<span class="c1"># plt.title(&#39;fig.3 Max_depth vs. Accuracy&#39;)</span>
+<span class="c1"># plt.tight_layout()</span>
+<span class="n">line_plot</span><span class="p">(</span><span class="n">Ks</span><span class="p">,</span> <span class="n">mean_acc</span><span class="p">,</span> <span class="n">std_acc</span><span class="p">,</span> <span class="s2">&quot;Maximum Depth&quot;</span><span class="p">,</span> <span class="s2">&quot;Accuracy&quot;</span><span class="p">,</span> <span class="s2">&quot;fig.2 Relationship between Number of Neighbors and Accuracy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/zoo_analysis_26_0.png" src="../_images/zoo_analysis_26_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The best accuracy was with the values&quot;</span><span class="p">,</span> <span class="n">mean_acc</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="s2">&quot;with max_depth =&quot;</span><span class="p">,</span> <span class="n">mean_acc</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The best accuracy was with the values 0.9047619047619048 with max_depth = 5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="decision-tree-final-model-evaluation">
+<h4>Decision Tree final model &amp; evaluation<a class="headerlink" href="#decision-tree-final-model-evaluation" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># As Best is max depth = 5</span>
+<span class="c1"># using max depth = 5 for the final decision tree</span>
+<span class="c1"># Final decision tree is here used the split test part to train again for better training, and better prediction</span>
+<span class="c1"># DT evaluation is also here scroll through the output</span>
+<span class="n">Final_dec_Tree</span> <span class="o">=</span> <span class="n">finalModel</span><span class="p">(</span><span class="s2">&quot;DT&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DT INFO: So the accuracy score for max depth = 5 is 0.9523809523809523
+
+DT Cross Validate: 
+
+fit_time       0.000673
+score_time     0.000414
+test_score     0.937500
+train_score    0.995833
+dtype: float64
+
+DT Classification report: 
+
+              precision    recall  f1-score   support
+
+           1       1.00      1.00      1.00         7
+           2       1.00      1.00      1.00         5
+           4       1.00      1.00      1.00         1
+           5       1.00      1.00      1.00         1
+           6       0.75      1.00      0.86         3
+           7       1.00      0.75      0.86         4
+
+    accuracy                           0.95        21
+   macro avg       0.96      0.96      0.95        21
+weighted avg       0.96      0.95      0.95        21
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/Elaine/miniforge3/lib/python3.9/site-packages/sklearn/model_selection/_split.py:676: UserWarning: The least populated class in y has only 3 members, which is less than n_splits=4.
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="support-vector-machine">
+<h4>Support Vector Machine<a class="headerlink" href="#support-vector-machine" title="Permalink to this headline">¶</a></h4>
+<p>SVM or Support Vector Machine is a linear model for classification and regression problems.
+It can solve linear and non-linear problems and work well for many practical problems.
+The idea of SVM is simple: The algorithm creates a line or a hyperplane which separates the
+data into classes.</p>
+</div>
+<div class="section" id="svm-training-model-jaccard-score-final-model-and-evaluation">
+<h4>SVM training model Jaccard Score, final model and evaluation<a class="headerlink" href="#svm-training-model-jaccard-score-final-model-and-evaluation" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Final SVM is here used the splited test part to train again for better training, and better prediction</span>
+<span class="c1">#svm evaluation train and final model is also here scroll through the output</span>
+<span class="n">svec</span> <span class="o">=</span> <span class="n">finalModel</span><span class="p">(</span><span class="s2">&quot;SVM&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SVM INFO: So the Training Jaccard score for SVM is: 0.8260869565217391
+
+SVM Evaluation:
+
+              precision    recall  f1-score   support
+
+           1       1.00      1.00      1.00         7
+           2       1.00      1.00      1.00         5
+           4       0.33      1.00      0.50         1
+           5       1.00      1.00      1.00         1
+           6       1.00      1.00      1.00         3
+           7       1.00      0.50      0.67         4
+
+    accuracy                           0.90        21
+   macro avg       0.89      0.92      0.86        21
+weighted avg       0.97      0.90      0.91        21
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="logistic-regression">
+<h4>Logistic Regression<a class="headerlink" href="#logistic-regression" title="Permalink to this headline">¶</a></h4>
+<p>Logistic Regression is a “Supervised machine learning” algorithm that can be used to model the probability of a certain class or event. It is used when the data is linearly separable and the outcome is binary or dichotomous in nature. That means Logistic regression is usually used for Binary classification problems.</p>
+</div>
+<div class="section" id="logistic-regression-training-model-jaccard-score-final-model-and-evaluation">
+<h4>Logistic Regression training model Jaccard Score, final model and evaluation<a class="headerlink" href="#logistic-regression-training-model-jaccard-score-final-model-and-evaluation" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># final LR model is here used the splited test part to train again for better training, and better prediction</span>
+<span class="c1"># LR evaluation train and final model is also here scroll through the output</span>
+<span class="n">LR</span> <span class="o">=</span> <span class="n">finalModel</span><span class="p">(</span><span class="s2">&quot;LR&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LR INFO: So the Training Jaccard score for Logistic Regression is: 0.68
+
+LR Evaluation: 
+
+              precision    recall  f1-score   support
+
+           1       0.88      1.00      0.93         7
+           2       0.83      1.00      0.91         5
+           4       0.50      1.00      0.67         1
+           5       0.00      0.00      0.00         1
+           6       0.75      1.00      0.86         3
+           7       1.00      0.25      0.40         4
+
+    accuracy                           0.81        21
+   macro avg       0.66      0.71      0.63        21
+weighted avg       0.81      0.81      0.76        21
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/Elaine/miniforge3/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/Users/Elaine/miniforge3/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/Users/Elaine/miniforge3/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+</pre></div>
+</div>
+</div>
+</div>
+</br>
+</div>
+</div>
+</div>
+<div class="section" id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
+<p>After analyzing all the different 4 models K Nearest Neighbor(KNN), Decision Tree, Support Vector Machine and Logistic Regression, we found KNN is best to predict the animal type here. As you have seen in the model evaluation tables before, for accuracy KNN is the best, the second-best is decision tree method and following by Support Vector Machine and Logistic Regression. The result of KNN was expected as KNN is the best in grouping similar data points together and giving the best prediction results. Predicting the correct animal type with the highest accuracy have a huge impact on identifying animal types. These models can be used to identify animal types instantly for example if someone saw/discovered an animal and the type is not identified then they can feed all the characteristics fields to the model. The model can predict the animal type accurately, which is way more accurate than identifying and classifying the animal based on common sense. Thus our model can increase the research potential in many fields but not just limited to Marine Science, Animal Science, Forestry, and etc. This might lead to a future question in which how we are going to maintain the accuracy of predictions when working with more diverse groups of animals. Another possible aspect of this can be how some attributes of animals will relate to each other, for instance, relation between animals which has teeth vs predator. Furthermore, how we are going to use those relations to predict behaviors and attributes of newly discovered animals and how we are going to make our perceptions on animals even more detailed. These models and their advancements will not only widen our knowledge in terms of animal biology but will also let us find all other possible relations within the nature in a much more efficient way.</p>
+</div>
+<div class="section" id="citation">
+<h2>Citation<a class="headerlink" href="#citation" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://BioExplorer.net">BioExplorer.net</a>. (2022, February 18). Types of Animals. Bio Explorer. <a class="reference external" href="https://www.bioexplorer.net/animals/">https://www.bioexplorer.net/animals/</a>.</p>
+<p>N. Manohar, Y. H. Sharath Kumar and G. H. Kumar, “Supervised and unsupervised learning in animal classification,” <em>2016 International Conference on Advances in Computing, Communications and Informatics (ICACCI)</em>, 2016, pp. 156-161, doi: 10.1109/ICACCI.2016.7732040.</p>
+<p>Tiffany Timbers, T. C. (2022, February 13). Data science: A first Introduction. Retrieved February 18, 2022, from <a class="reference external" href="https://datasciencebook.ca/">https://datasciencebook.ca/</a>.</p>
+<p>Zoo. (1990). UCI Machine Learning Repository.</p>
+<p>Towards Data Science - Medium Articles.</p>
+<p>IBM Data Science Resources.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./original_report"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By DSCI310-group7<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

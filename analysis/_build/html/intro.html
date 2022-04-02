@@ -51,7 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Methods &amp; Results" href="exploratory_analysis.html" />
+    <link rel="next" title="Methods &amp; Results" href="analysis.html" />
     <link rel="prev" title="Zoo analysis based on Classification" href="contents.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -98,7 +98,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="exploratory_analysis.html">
+  <a class="reference internal" href="analysis.html">
    Methods &amp; Results
   </a>
  </li>
@@ -198,26 +198,26 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>The earth is an amazing planet that cultivates branches of animals. In general, scholars split them into 12 classes including mammals, birds, reptiles, amphibians, fishes, insects, crustaceans, arachnids, echinoderms, worms, mollusks and sponges(<a class="reference external" href="http://BioExploer.net">BioExploer.net</a>., 2022). The traditional way in animal classification is manually identifying the characteristics and attributing it the mostly close class (Manohar, Sharath, &amp; Kumar, 2016). However, it is tedious and time consuming, especially when the data set is very huge. A question hereby comes to us, if we can apply K-nearest neighbors (KNN) algorithms in predicting the type an animal belongs to given its related characteristics, such as hair, feathers, etc.? Therefore, in this project, we will show how we use KNN to do classification in animals based on data set Zoo(1990) which contains 1 categorical attribute, 17 Boolean-valued attributes and 1 numerical attribute. The categorical attribute appears to be the class attribute. Detailed breakdowns are as follows:</p>
+<p>The earth is an amazing planet that cultivates branches of animals. In general, scholars split them into 12 classes including mammals, birds, reptiles, amphibians, fishes, insects, crustaceans, arachnids, echinoderms, worms, mollusks and sponges <span id="id1">[<a class="reference internal" href="references.html#id2">BioExplorer.net, 2022</a>]</span>. The traditional way in animal classification is manually identifying the characteristics and attributing it the mostly close class <span id="id2">[<a class="reference internal" href="references.html#id3">N. Manohar and Kumar, 2016</a>]</span>. However, it is tedious and time consuming, especially when the data set is very huge. A question hereby comes to us, if we can apply K-nearest neighbors (KNN) algorithms in predicting the type an animal belongs to given its related characteristics, such as hair, feathers, etc.? Therefore, in this project, we will show how we use KNN to do classification in animals based on data set <span id="id3">[<a class="reference internal" href="references.html#id5">Repository, 1990</a>]</span> which contains 1 categorical attribute, 17 Boolean-valued attributes and 1 numerical attribute. The categorical attribute appears to be the class attribute. Detailed breakdowns are as follows:</p>
 <ol class="simple">
-<li><p>​          animal name: Unique for each instance</p></li>
-<li><p>​          hair: Boolean</p></li>
-<li><p>​          feathers: Boolean</p></li>
-<li><p>​          eggs: Boolean</p></li>
-<li><p>​          milk: Boolean</p></li>
-<li><p>​          airborne: Boolean</p></li>
-<li><p>​          aquatic: Boolean</p></li>
-<li><p>​          predator: Boolean</p></li>
-<li><p>​          toothed: Boolean</p></li>
-<li><p>​          backbone: Boolean</p></li>
-<li><p>​          breathes: Boolean</p></li>
-<li><p>​          venomous: Boolean</p></li>
-<li><p>​          fins: Boolean</p></li>
-<li><p>​          legs: Numeric (set of values: {0,2,4,5,6,8})</p></li>
-<li><p>​          tail: Boolean</p></li>
-<li><p>​          domestic: Boolean</p></li>
-<li><p>​          catsize: Boolean</p></li>
-<li><p>​          type: Numeric (integer values in range [1,7])</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">animal</span> <span class="pre">name</span></code>: Unique for each instance</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hair</span></code>: Boolean</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">feathers</span></code>: Boolean</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eggs</span></code>: Boolean</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">milk</span></code>: Boolean</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">airborne</span></code>: Boolean</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">aquatic</span></code>: Boolean</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">predator</span></code>: Boolean</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">toothed</span></code>: Boolean</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">backbone</span></code>: Boolean</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">breathes</span></code>: Boolean</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">venomous</span></code>: Boolean</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fins</span></code>: Boolean</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">legs</span></code>: Numeric (set of values: {0,2,4,5,6,8})</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tail</span></code>: Boolean</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">domestic</span></code>: Boolean</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">catsize</span></code>: Boolean</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: Numeric (integer values in range [1,7])</p></li>
 </ol>
 </div>
 
@@ -253,7 +253,7 @@
             <p class="prev-next-title">Zoo analysis based on Classification</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="exploratory_analysis.html" title="next page">
+    <a class='right-next' id="next-link" href="analysis.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Methods &amp; Results</p>
