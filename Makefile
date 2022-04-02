@@ -35,3 +35,4 @@ clean :
 	rm -f data/processed/zoo.csv
 	rm -f results/csv/*
 	rm -f results/figures/*
+

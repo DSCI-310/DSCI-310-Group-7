@@ -22,5 +22,5 @@ path = args.out_file
 
 data = pd.read_csv(data_path)
 data.hist(figsize=(15,15))
-plt.suptitle("fig.1 Histogram of all features")
+plt.suptitle("Histogram of all features")
 plt.savefig(path)
