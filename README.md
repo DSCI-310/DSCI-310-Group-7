@@ -29,15 +29,15 @@ Documents about Project Manners:
 
 There are two suggested ways to run
 
-1. Steps to run: 
+1. Via Docker
 
 a. Run in your terminal
 
 ```
-docker pull sasiburi/dsci-310-group-7:v2.0.0
+docker pull sasiburi/dsci-310-group-7:latest
 ```
 
-​		*Note: You can replace `latest` by another specific version.  Please kindly read the **History of Releases** for more versions.*
+*Note: You can replace `latest` by another specific version.  Please kindly read the **History of Releases** for more versions.*
 
 <br>
 
@@ -51,29 +51,27 @@ git clone https://github.com/DSCI-310/DSCI-310-Group-7.git
 
 *Note*: you can find detailed instructions of repository clone from [here](https://github.com/DSCI-310/DSCI-310-Group-7.git).
 
-Make sure you are at the root of the cloned repo, then open it under the reproducible environment by following command:
+Make sure you are at the **root** of the cloned repo, then open it under the reproducible environment by following command:
 
 ```
-docker run --rm -it -p 8787:8888 -v /$(pwd):/opt/notebooks sasiburi/dsci-310-group-7:v2.0.0
+docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work sasiburi/dsci-310-group-7:latest
 ```
 
-*Note: if port 8787 has been allocated, you can replace 8787 by another random four-digit number.*
+*Note: if port 8888 has been allocated, you can replace 8888 by another random four-digit number.*
 
 <br>
 
 c. Access the file via JupyterLab
 
-Open link [http://localhost:8787](http://localhost:8787/)
+Open link provided on the console
 
-*Note: If you choose other number as your port, please replace 8787 by the four-digit number you chose.*
-
-Required token can be obtained on your terminal. For example, `token=3912f59232fe3b260fda201da4e822e69bfed02e649dc56b`, then `3912f59232fe3b260fda201da4e822e69bfed02e649dc56b` is the token.
+*Note: If token is required, it can be obtained on your terminal. For example, `token=3912f59232fe3b260fda201da4e822e69bfed02e649dc56b`, then `3912f59232fe3b260fda201da4e822e69bfed02e649dc56b` is the token.*
 
 <br>
 
 
 
-2. Use MakeFile
+2. Via MakeFile
 
 a. Still Clone this repo. Same code as above.
 
