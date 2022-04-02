@@ -2,7 +2,7 @@
 # date: 2022-04-01
 
 #includes the items for the exploratory analysis
-all: results/figures/fig1.png results/figures/k_accuracy.png results/figures/dt_accuracy.png results/csv/head.csv results/csv/knn_classification_report.csv results/csv/dt_classification_report.csv results/csv/dt_cross_validate_result.csv results/csv/knn_cross_validate_result.csv results/csv/lr_classification_report.csv results/csv/svm_classification_report.csv analysis/_build/html/index.html doc/zoo_analysis.html doc/zoo_analysis.pdf
+all: results/figures/fig1.png results/figures/k_accuracy.png results/figures/dt_accuracy.png results/csv/head.csv results/csv/knn_classification_report.csv results/csv/dt_classification_report.csv results/csv/dt_cross_validate_result.csv results/csv/knn_cross_validate_result.csv results/csv/lr_classification_report.csv results/csv/svm_classification_report.csv analysis/_build/html/index.html analysis/_build/latex/python.pdf doc/zoo_analysis.html doc/zoo_analysis.pdf
 
 
 #read data and proprocess data
@@ -28,6 +28,8 @@ results/csv/lr_classification_report.csv results/csv/svm_classification_report.c
 #render reports
 analysis/_build/html/index.html: analysis/_config.yml analysis/_toc.yml analysis/analysis.ipynb analysis/discussion.md analysis/references.bib
 	jupyter-book build analysis/
+analysis/_build/latex/python.pdf: analysis/_config.yml analysis/_toc.yml analysis/analysis.ipynb analysis/discussion.md analysis/references.bib
+	jb build analysis/ --builder pdflatex
 
 # render R Markdown report in HTML and PDF
 doc/zoo_analysis.html doc/zoo_analysis.pdf: doc/zoo_analysis.Rmd doc/references.bib
