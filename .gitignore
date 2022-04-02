@@ -137,3 +137,5 @@ data/processed/.DS_Store
 main.py
 .idea/inspectionProfiles/profiles_settings.xml
 .idea/.name
+analysis/_build/.doctrees/environment.pickle
+analysis/_build/.doctrees/environment.pickle

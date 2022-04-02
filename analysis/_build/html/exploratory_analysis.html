@@ -1,0 +1,1522 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Methods &amp; Results &#8212; Zoo Analysis</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Discussion" href="discussion.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Zoo Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="contents.html">
+   Zoo analysis based on Classification
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Methods &amp; Results
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="discussion.html">
+   Discussion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/exploratory_analysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/exploratory_analysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classification">
+   Classification
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#knn">
+     KNN
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#knn-final-model-evaluation">
+     KNN final model &amp; Evaluation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decision-tree">
+     Decision Tree
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decision-tree-final-model-evaluation">
+     Decision Tree final model &amp; evaluation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#support-vector-machine">
+     Support Vector Machine
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#svm-training-model-jaccard-score-final-model-and-evaluation">
+     SVM training model Jaccard Score, final model and evaluation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logistic-regression">
+     Logistic Regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logistic-regression-training-model-jaccard-score-final-model-and-evaluation">
+     Logistic Regression training model Jaccard Score, final model and evaluation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Methods & Results</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classification">
+   Classification
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#knn">
+     KNN
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#knn-final-model-evaluation">
+     KNN final model &amp; Evaluation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decision-tree">
+     Decision Tree
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decision-tree-final-model-evaluation">
+     Decision Tree final model &amp; evaluation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#support-vector-machine">
+     Support Vector Machine
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#svm-training-model-jaccard-score-final-model-and-evaluation">
+     SVM training model Jaccard Score, final model and evaluation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logistic-regression">
+     Logistic Regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logistic-regression-training-model-jaccard-score-final-model-and-evaluation">
+     Logistic Regression training model Jaccard Score, final model and evaluation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="methods-results">
+<h1>Methods &amp; Results<a class="headerlink" href="#methods-results" title="Permalink to this headline">¶</a></h1>
+<p>We are going to use multiple analysis to classify the type of the animals using 16 variables including hair, feathers, eggs, milk, airborne, aquatic, predator, toothed, backbone, breathes, venomous, fins, legs, tail, domestic, catsize as our predictors. To predict the class of a new observation, the algorithms of each type will be further explained before implementation.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reading the data as a csv from the uci web server, with header = false as the data contains no header</span>
+<span class="c1"># Adding column names to the data</span>
+<span class="n">colm</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;animalName&quot;</span><span class="p">,</span> <span class="s2">&quot;hair&quot;</span><span class="p">,</span> <span class="s2">&quot;feathers&quot;</span><span class="p">,</span> <span class="s2">&quot;eggs&quot;</span><span class="p">,</span> <span class="s2">&quot;milk&quot;</span><span class="p">,</span> <span class="s2">&quot;airborne&quot;</span><span class="p">,</span> <span class="s2">&quot;aquatic&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;predator&quot;</span><span class="p">,</span> <span class="s2">&quot;toothed&quot;</span><span class="p">,</span> <span class="s2">&quot;backbone&quot;</span><span class="p">,</span> <span class="s2">&quot;breathes&quot;</span><span class="p">,</span> <span class="s2">&quot;venomous&quot;</span><span class="p">,</span> <span class="s2">&quot;fins&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;legs&quot;</span><span class="p">,</span> <span class="s2">&quot;tail&quot;</span><span class="p">,</span> <span class="s2">&quot;domestic&quot;</span><span class="p">,</span> <span class="s2">&quot;catsize&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">]</span>
+
+<span class="n">zoo_data</span> <span class="o">=</span> <span class="n">pre_process</span><span class="p">(</span><span class="s2">&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/zoo/zoo.data&quot;</span><span class="p">,</span> <span class="n">colm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first thing is to import the data. The data set is downloaded from <span class="xref myst">UCI repository</span>. It is then saved as a csv file in this project repository. Some exploratory data analysis needs to be run before running the actual analyses on the data set. Here is a preview of pre-processed data set:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>hair</th>
+      <th>feathers</th>
+      <th>eggs</th>
+      <th>milk</th>
+      <th>airborne</th>
+      <th>aquatic</th>
+      <th>predator</th>
+      <th>toothed</th>
+      <th>backbone</th>
+      <th>breathes</th>
+      <th>venomous</th>
+      <th>fins</th>
+      <th>legs</th>
+      <th>tail</th>
+      <th>domestic</th>
+      <th>catsize</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Whether the dataset contains missing value: False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Below is a summary of dataset:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>hair</th>
+      <th>feathers</th>
+      <th>eggs</th>
+      <th>milk</th>
+      <th>airborne</th>
+      <th>aquatic</th>
+      <th>predator</th>
+      <th>toothed</th>
+      <th>backbone</th>
+      <th>breathes</th>
+      <th>venomous</th>
+      <th>fins</th>
+      <th>legs</th>
+      <th>tail</th>
+      <th>domestic</th>
+      <th>catsize</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.0</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.0</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.000000</td>
+      <td>5.0</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.0</td>
+      <td>5.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2.000000</td>
+      <td>0.800000</td>
+      <td>0.0</td>
+      <td>0.200000</td>
+      <td>0.800000</td>
+      <td>0.0</td>
+      <td>0.200000</td>
+      <td>0.800000</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.800000</td>
+      <td>0.0</td>
+      <td>0.200000</td>
+      <td>3.200000</td>
+      <td>0.600000</td>
+      <td>0.0</td>
+      <td>0.800000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.581139</td>
+      <td>0.447214</td>
+      <td>0.0</td>
+      <td>0.447214</td>
+      <td>0.447214</td>
+      <td>0.0</td>
+      <td>0.447214</td>
+      <td>0.447214</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.447214</td>
+      <td>0.0</td>
+      <td>0.447214</td>
+      <td>1.788854</td>
+      <td>0.547723</td>
+      <td>0.0</td>
+      <td>0.447214</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>4.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>4.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>3.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>4.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>4.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>4.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>As there aren’t missing values in the data set, we can clearly deduce that the data set is clean according to the data summary we generated above. Since most features are binary and categorical, there is no need to do normalization and standardization.</p>
+<div class="figure align-default" id="f1">
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/fig1.png"><img alt="num" class="bg-primary mb-1" src="_images/fig1.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">A summary table of the data set</span><a class="headerlink" href="#f1" title="Permalink to this image">¶</a></p>
+</div>
+<p>As shown in <a class="reference internal" href="#f1"><span class="std std-ref">fig.1</span></a>, the histograms of each feature are generated. The ones with skewed distribution might be more decisive in the prediction. However, since the data set is relatively small, all the features except the <code class="docutils literal notranslate"><span class="pre">animalName</span></code> are going to be used to predict. In the next part, we are going to split the data, into the training set and testing set. After that, different classification models will be trained and evaluated.</p>
+<div class="section" id="classification">
+<h2>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h2>
+<p>Now we will use the training set to build an accurate model, whereas the testing set is used to report the accuracy of the models. Here is a list of algorithms we will use in the following section:</p>
+<p>K Nearest Neighbor(KNN)
+<br>
+Decision Tree
+<br>
+Support Vector Machine
+<br>
+Logistic Regression</p>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># extracting the feature that will predict</span>
+<span class="n">feature</span> <span class="o">=</span> <span class="n">zoo_data</span><span class="p">[[</span><span class="s2">&quot;hair&quot;</span><span class="p">,</span> <span class="s2">&quot;feathers&quot;</span><span class="p">,</span> <span class="s2">&quot;eggs&quot;</span><span class="p">,</span> <span class="s2">&quot;milk&quot;</span><span class="p">,</span> <span class="s2">&quot;airborne&quot;</span><span class="p">,</span> 
+                   <span class="s2">&quot;aquatic&quot;</span><span class="p">,</span> <span class="s2">&quot;predator&quot;</span><span class="p">,</span> <span class="s2">&quot;toothed&quot;</span><span class="p">,</span> <span class="s2">&quot;backbone&quot;</span><span class="p">,</span> <span class="s2">&quot;breathes&quot;</span><span class="p">,</span> 
+                   <span class="s2">&quot;venomous&quot;</span><span class="p">,</span> <span class="s2">&quot;fins&quot;</span><span class="p">,</span> <span class="s2">&quot;legs&quot;</span><span class="p">,</span> <span class="s2">&quot;tail&quot;</span><span class="p">,</span> <span class="s2">&quot;domestic&quot;</span><span class="p">,</span> <span class="s2">&quot;catsize&quot;</span><span class="p">]]</span>
+<span class="c1"># making it as a X</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">feature</span>
+<span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The training set and test set are splitted.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># splitting the dataset 80-20 for train and test</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Training set:&#39;</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>  <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test set:&#39;</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>  <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training set: (80, 16) (80,)
+Test set: (21, 16) (21,)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="knn">
+<h3>KNN<a class="headerlink" href="#knn" title="Permalink to this headline">¶</a></h3>
+<p>KNN captures the idea of similarity (sometimes called distance, proximity, or closeness)
+with some basic mathematics we might have learned earlier. Basically in terms of geometry we can always calculate the distance between points on a graph. Similarly, using KNN we can group similar points together and predict the target with our feature variables(x).</p>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#training the model for different set of K values and finding the best K value</span>
+<span class="n">Ks</span> <span class="o">=</span> <span class="mi">81</span>
+<span class="n">mean_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Ks</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">std_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Ks</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">ConfustionMx</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Ks</span><span class="p">):</span>
+    
+    <span class="c1">#Train Model and Predict  </span>
+    <span class="n">neigh</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+    <span class="n">yhat</span><span class="o">=</span><span class="n">neigh</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">mean_acc</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat</span><span class="p">)</span>
+
+<span class="n">std_acc</span> <span class="o">=</span> <span class="n">stdAcc</span><span class="p">(</span><span class="n">yhat</span><span class="p">,</span><span class="n">y_test</span><span class="p">,</span><span class="n">Ks</span><span class="p">)</span>
+<span class="n">mean_acc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.        , 0.95238095, 0.95238095, 0.9047619 , 0.85714286,
+       0.80952381, 0.85714286, 0.76190476, 0.76190476, 0.76190476,
+       0.76190476, 0.76190476, 0.76190476, 0.76190476, 0.76190476,
+       0.76190476, 0.76190476, 0.71428571, 0.61904762, 0.61904762,
+       0.61904762, 0.61904762, 0.61904762, 0.61904762, 0.61904762,
+       0.61904762, 0.61904762, 0.61904762, 0.61904762, 0.61904762,
+       0.61904762, 0.61904762, 0.61904762, 0.57142857, 0.57142857,
+       0.57142857, 0.57142857, 0.57142857, 0.57142857, 0.57142857,
+       0.57142857, 0.57142857, 0.57142857, 0.57142857, 0.57142857,
+       0.47619048, 0.42857143, 0.42857143, 0.42857143, 0.33333333,
+       0.33333333, 0.33333333, 0.33333333, 0.33333333, 0.33333333,
+       0.33333333, 0.33333333, 0.33333333, 0.33333333, 0.33333333,
+       0.33333333, 0.33333333, 0.33333333, 0.33333333, 0.33333333,
+       0.33333333, 0.33333333, 0.33333333, 0.33333333, 0.33333333,
+       0.33333333, 0.33333333, 0.33333333, 0.33333333, 0.33333333,
+       0.33333333, 0.33333333, 0.33333333, 0.33333333, 0.33333333])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default" id="f2">
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/k_accuracy.png"><img alt="num" class="bg-primary mb-1" src="_images/k_accuracy.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">A plot reveals the relationship between K and corresponding accuracy</span><a class="headerlink" href="#f2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The best accuracy was with the values 1.0 with k= 1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finding the K value using Grid Search</span>
+<span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>
+<span class="n">k_vals</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">k_vals</span><span class="p">)</span>
+
+<span class="n">para_optimize</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;n_neighbors&#39;: 1}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="knn-final-model-evaluation">
+<h3>KNN final model &amp; Evaluation<a class="headerlink" href="#knn-final-model-evaluation" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># as the best accuracy was with K = 1</span>
+<span class="c1"># using K = 1 for the final KNN model</span>
+<span class="c1"># Final KNN model is here used the splited test part to train again for better training, and better prediction</span>
+<span class="c1"># KNN evaluation is also here scroll through the output</span>
+<span class="n">final_knn_model</span> <span class="o">=</span> <span class="n">finalModel</span><span class="p">(</span><span class="s2">&quot;KNN&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>KNN Cross Validation Result:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>fit_time</td>
+      <td>0.000362</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>score_time</td>
+      <td>0.002690</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>test_score</td>
+      <td>0.936847</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>train_score</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>KNN Classification Report:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>f1-score</th>
+      <th>support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>7</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>accuracy</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>macro avg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>21.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>weighted avg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>21.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="decision-tree">
+<h3>Decision Tree<a class="headerlink" href="#decision-tree" title="Permalink to this headline">¶</a></h3>
+<p>A decision tree is a decision support tool that uses a tree-like model of decisions and their
+possible consequences, including chance event outcomes, resource costs, and utility
+The goal of using a Decision Tree is to create a training model that can use to predict
+the class or value of the target variable by learning simple decision rules inferred
+from prior data(training data).</p>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ks</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">mean_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Ks</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">std_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Ks</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">ConfustionMx</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Ks</span><span class="p">):</span>
+    <span class="c1"># Train Model and Predict  </span>
+    <span class="n">decTree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s2">&quot;entropy&quot;</span><span class="p">,</span> <span class="n">max_depth</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">decTree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+    <span class="n">yhat</span><span class="o">=</span><span class="n">decTree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">mean_acc</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat</span><span class="p">)</span>
+
+<span class="n">std_acc</span> <span class="o">=</span> <span class="n">stdAcc</span><span class="p">(</span><span class="n">yhat</span><span class="p">,</span><span class="n">y_test</span><span class="p">,</span><span class="n">Ks</span><span class="p">)</span>
+<span class="n">mean_acc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.57142857, 0.61904762, 0.80952381, 0.80952381, 0.9047619 ,
+       0.85714286, 0.9047619 , 0.9047619 , 0.9047619 , 0.85714286,
+       0.9047619 , 0.85714286, 0.85714286, 0.9047619 , 0.9047619 ,
+       0.9047619 , 0.85714286, 0.9047619 , 0.85714286, 0.85714286,
+       0.85714286, 0.9047619 , 0.85714286, 0.9047619 , 0.9047619 ,
+       0.85714286, 0.9047619 , 0.9047619 , 0.9047619 , 0.9047619 ,
+       0.9047619 , 0.9047619 , 0.9047619 , 0.9047619 , 0.85714286,
+       0.9047619 , 0.9047619 , 0.9047619 , 0.9047619 , 0.9047619 ,
+       0.9047619 , 0.9047619 , 0.9047619 , 0.9047619 , 0.85714286,
+       0.9047619 , 0.9047619 , 0.9047619 , 0.9047619 ])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default" id="f3">
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/dt_accuracy.png"><img alt="num" class="bg-primary mb-1" src="_images/dt_accuracy.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">A plot reveals the relationship between deepth and corresponding accuracy</span><a class="headerlink" href="#f3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The best accuracy was with the values 0.9047619047619048 with max_depth = 5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="decision-tree-final-model-evaluation">
+<h3>Decision Tree final model &amp; evaluation<a class="headerlink" href="#decision-tree-final-model-evaluation" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># As Best is max depth = 5</span>
+<span class="c1"># using max depth = 5 for the final decision tree</span>
+<span class="c1"># Final decision tree is here used the split test part to train again for better training, and better prediction</span>
+<span class="c1"># DT evaluation is also here scroll through the output</span>
+<span class="n">Final_dec_Tree</span> <span class="o">=</span> <span class="n">finalModel</span><span class="p">(</span><span class="s2">&quot;DT&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>DT Cross Validation Result:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_cross_validate_result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../results/csv/dt_cross_validate_result.csv&quot;</span><span class="p">)</span>
+<span class="n">dt_cross_validate_result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>fit_time</td>
+      <td>0.001270</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>score_time</td>
+      <td>0.000273</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>test_score</td>
+      <td>0.950000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>train_score</td>
+      <td>0.995833</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>DT Classification Report:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>f1-score</th>
+      <th>support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>7.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>5.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6</td>
+      <td>0.750000</td>
+      <td>1.000000</td>
+      <td>0.857143</td>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>7</td>
+      <td>1.000000</td>
+      <td>0.750000</td>
+      <td>0.857143</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>accuracy</td>
+      <td>0.952381</td>
+      <td>0.952381</td>
+      <td>0.952381</td>
+      <td>0.952381</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>macro avg</td>
+      <td>0.958333</td>
+      <td>0.958333</td>
+      <td>0.952381</td>
+      <td>21.000000</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>weighted avg</td>
+      <td>0.964286</td>
+      <td>0.952381</td>
+      <td>0.952381</td>
+      <td>21.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="support-vector-machine">
+<h3>Support Vector Machine<a class="headerlink" href="#support-vector-machine" title="Permalink to this headline">¶</a></h3>
+<p>SVM or Support Vector Machine is a linear model for classification and regression problems.
+It can solve linear and non-linear problems and work well for many practical problems.
+The idea of SVM is simple: The algorithm creates a line or a hyperplane which separates the
+data into classes.</p>
+</div>
+<div class="section" id="svm-training-model-jaccard-score-final-model-and-evaluation">
+<h3>SVM training model Jaccard Score, final model and evaluation<a class="headerlink" href="#svm-training-model-jaccard-score-final-model-and-evaluation" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Final SVM is here used the splited test part to train again for better training, and better prediction</span>
+<span class="c1">#svm evaluation train and final model is also here scroll through the output</span>
+<span class="n">svec</span> <span class="o">=</span> <span class="n">finalModel</span><span class="p">(</span><span class="s2">&quot;SVM&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>SVM Classification Report:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>f1-score</th>
+      <th>support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>7.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>5.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>0.333333</td>
+      <td>1.000000</td>
+      <td>0.500000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>7</td>
+      <td>1.000000</td>
+      <td>0.500000</td>
+      <td>0.666667</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>accuracy</td>
+      <td>0.904762</td>
+      <td>0.904762</td>
+      <td>0.904762</td>
+      <td>0.904762</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>macro avg</td>
+      <td>0.888889</td>
+      <td>0.916667</td>
+      <td>0.861111</td>
+      <td>21.000000</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>weighted avg</td>
+      <td>0.968254</td>
+      <td>0.904762</td>
+      <td>0.912698</td>
+      <td>21.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="logistic-regression">
+<h3>Logistic Regression<a class="headerlink" href="#logistic-regression" title="Permalink to this headline">¶</a></h3>
+<p>Logistic Regression is a “Supervised machine learning” algorithm that can be used to model the probability of a certain class or event. It is used when the data is linearly separable and the outcome is binary or dichotomous in nature. That means Logistic regression is usually used for Binary classification problems.</p>
+</div>
+<div class="section" id="logistic-regression-training-model-jaccard-score-final-model-and-evaluation">
+<h3>Logistic Regression training model Jaccard Score, final model and evaluation<a class="headerlink" href="#logistic-regression-training-model-jaccard-score-final-model-and-evaluation" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># final LR model is here used the splited test part to train again for better training, and better prediction</span>
+<span class="c1"># LR evaluation train and final model is also here scroll through the output</span>
+<span class="n">LR</span> <span class="o">=</span> <span class="n">finalModel</span><span class="p">(</span><span class="s2">&quot;LR&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>LR Classification Report:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>f1-score</th>
+      <th>support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0.875000</td>
+      <td>1.000000</td>
+      <td>0.933333</td>
+      <td>7.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>0.833333</td>
+      <td>1.000000</td>
+      <td>0.909091</td>
+      <td>5.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>0.500000</td>
+      <td>1.000000</td>
+      <td>0.666667</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6</td>
+      <td>0.750000</td>
+      <td>1.000000</td>
+      <td>0.857143</td>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>7</td>
+      <td>1.000000</td>
+      <td>0.250000</td>
+      <td>0.400000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>accuracy</td>
+      <td>0.809524</td>
+      <td>0.809524</td>
+      <td>0.809524</td>
+      <td>0.809524</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>macro avg</td>
+      <td>0.659722</td>
+      <td>0.708333</td>
+      <td>0.627706</td>
+      <td>21.000000</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>weighted avg</td>
+      <td>0.811508</td>
+      <td>0.809524</td>
+      <td>0.757947</td>
+      <td>21.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="discussion.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Discussion</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By DSCI310-group7<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
