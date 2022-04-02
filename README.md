@@ -124,6 +124,11 @@ more details could be found on the right-hand side panel - **Releases**.
 | matplotlib   | 3.5.1   |
 | numpy        | 1.22.2  |
 | pytest       | 7.0.1   |
+| R            | 4.1.2   |
+| knitr        | 1.38    |
+| reticulate   | 1.24    |
+| tidyverse    | 1.3.1   |
+
 
    see [dockerfile](Dockerfile) and [docker image](https://hub.docker.com/repository/docker/sasiburi/dsci-310-group-7)
 
