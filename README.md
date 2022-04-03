@@ -25,6 +25,18 @@ Documents about Project Manners:
 
 <br>
 
+## Result
+The final report can be viewed and rendered from either jupyter book or rmarkdown:
+
+[Jbook Html](analysis/_build/html/index.html)
+
+[Jbook Pdf](analysis/_build/latex/python.pdf)
+
+[Rmd Htm](doc/zoo_analysis.html)
+
+[Rmd PDF](doc/zoo_analysis.pdf)
+
+
 ## Usage
 Our analysis report in form of jupyter book is stored at [analysis/_build/html/index.html](analysis/_build/html/index.html) and the report in other forms of [.Rmd](doc/zoo_analysis.Rmd). [.jpynb](analysis/original_report/zoo_analysis.ipynb) and [.pdf](doc/zoo_analysis.pdf) are also viewable.
 In order to repeat/reproduce our jupyter book report, there are two suggested ways:
