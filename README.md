@@ -38,8 +38,7 @@ The final report can be viewed from the following:
 
 
 ## Usage
-Our analysis report in form of jupyter book is stored at [analysis/_build/html/index.html](analysis/_build/html/index.html) and the report in other forms of [.Rmd](doc/zoo_analysis.Rmd). [.jpynb](analysis/original_report/zoo_analysis.ipynb) and [.pdf](doc/zoo_analysis.pdf) are also viewable.
-In order to repeat/reproduce our jupyter book report as well as Rmd report, there are two suggested ways:
+There are two suggested ways to repead/reproduce our analysis:
 
 ### Via Docker
 
@@ -49,7 +48,7 @@ In order to repeat/reproduce our jupyter book report as well as Rmd report, ther
 docker pull sasiburi/dsci-310-group-7:latest
 ```
 
-*Note: You can replace `latest` by another specific version.  Please kindly read the **History of Releases** for more versions.*
+*Note: The latest version is v2.9.0. You can replace `latest` by another specific version.  Please kindly read the **History of Releases** for more versions.*
 
 <br>
 
@@ -81,15 +80,6 @@ Open link provided on the console
 
 <br>
 
-**e. Re-build the report**
-
-the report in forms of jupyter book can be re-built by command:
-
-```
-jupyter-book build analysis/
-```
-*Note: Make sure you are at the root of this repo.*
-
 
 
 ### Via MakeFile
@@ -119,6 +109,7 @@ Releases relate to each milestone are listed as follows:
 
 1. Milestone 1: [v0.5.0](https://github.com/DSCI-310/DSCI-310-Group-7/releases/tag/v0.5.0)
 2. Milestone 2: [v2.0.0](https://github.com/DSCI-310/DSCI-310-Group-7/releases/tag/v2.0.0)
+3. Milestone 3: [v2.9.0](https://github.com/DSCI-310/DSCI-310-Group-7/releases/tag/v2.9.0)
 
 more details could be found on the right-hand side panel - **Releases**.
 
@@ -140,6 +131,7 @@ more details could be found on the right-hand side panel - **Releases**.
 | knitr        | 1.38    |
 | reticulate   | 1.24    |
 | tidyverse    | 1.3.1   |
+| jupyter-book |0.12.1.  |
 
 
    see [dockerfile](Dockerfile) and [docker image](https://hub.docker.com/repository/docker/sasiburi/dsci-310-group-7)
