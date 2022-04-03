@@ -48,7 +48,7 @@ There are two suggested ways to repead/reproduce our analysis:
 docker pull sasiburi/dsci-310-group-7:latest
 ```
 
-*Note: The latest version is v2.9.0. You can replace `latest` by another specific version.  Please kindly read the **History of Releases** for more versions.*
+*Note: The latest version is v3.0.0. You can replace `latest` by another specific version.  Please kindly read the **History of Releases** for more versions.*
 
 <br>
 
@@ -109,9 +109,9 @@ Releases relate to each milestone are listed as follows:
 
 1. Milestone 1: [v0.5.0](https://github.com/DSCI-310/DSCI-310-Group-7/releases/tag/v0.5.0)
 2. Milestone 2: [v2.0.0](https://github.com/DSCI-310/DSCI-310-Group-7/releases/tag/v2.0.0)
-3. Milestone 3: [v2.9.0](https://github.com/DSCI-310/DSCI-310-Group-7/releases/tag/v2.9.0)
+3. Milestone 3: [v3.0.0](https://github.com/DSCI-310/DSCI-310-Group-7/releases/tag/v3.0.0)
 
-more details could be found on the right-hand side panel - **Releases**.
+more details could be found on the right-hand-side panel, **Releases** or our [docker web](https://hub.docker.com/r/sasiburi/dsci-310-group-7/tags).
 
 <br>
 
