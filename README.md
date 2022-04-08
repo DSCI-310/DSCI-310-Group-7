@@ -15,7 +15,7 @@
 <br>
 
 ## Abstract
-The data set we used is the Zoo (1990) provided by UCL Machine Learning Repositry. It stores data about 7 classes of animals and their related factors inlcuding animal name, hair, feathers and so on. In this project, we picked classification as our method to classify a given animal to its most likely type. All of 16 factors including hair, feathers, eggs, milk, airborne, aquatic, predator, toothed, backbone, breathes, venomous, fins, legs, tail, domestic, and catsize were selected as our predictors. To best predict the class of a new observation, we implemented and evalutated models based on a list of algorithms including k-Nearest Neighbor(k-NN), Decision Tree, Support Vector Machine and Logistic Regression. After a comparison among accuracies of different models, we finally found that algorithm k-NN produced the most accurate result of predicting animal type. There are several ways to repeat/reproduce our analysis, please kindly find details in **Usage** section.
+The data set we used is the Zoo (1990) provided by UCL Machine Learning Repository. It stores data about 7 classes of animals and their related factors including animal name, hair, feathers and so on. In this project, we picked classification as our method to classify a given animal to its most likely type. All of 16 factors including hair, feathers, eggs, milk, airborne, aquatic, predator, toothed, backbone, breathes, venomous, fins, legs, tail, domestic, and catsize were selected as our predictors. To best predict the class of a new observation, we implemented and evaluated models based on a list of algorithms including k-Nearest Neighbor(k-NN), Decision Tree, Support Vector Machine and Logistic Regression. After a comparison among accuracies of different models, we finally found that algorithm k-NN produced the most accurate result of predicting animal type. There are several ways to repeat/reproduce our analysis, please kindly find details in **Usage** section.
 
 Documents about Project Manners:
 
@@ -25,7 +25,7 @@ Documents about Project Manners:
 
 <br>
 
-## Result
+## Analysis Results
 The final report can be viewed from the following:
 
 [Jbook Html](analysis/_build/html/index.html)
@@ -36,66 +36,92 @@ The final report can be viewed from the following:
 
 [Rmd PDF](doc/zoo_analysis.pdf)
 
+<br>
+
+## Dependencies
+
+A list of the dependencies packaged in the image:
+
+| Package Name | Version |
+| ------------ | ------- |
+| python       | 3.9.7   |
+| pandas       | 1.4.1   |
+| scikit-learn | 1.0.2   |
+| matplotlib   | 3.5.1   |
+| numpy        | 1.22.2  |
+| pytest       | 7.0.1   |
+| R            | 4.1.2   |
+| knitr        | 1.38    |
+| reticulate   | 1.24    |
+| tidyverse    | 1.3.1   |
+| jupyter-book | 0.12.1. |
+
+
+   see [dockerfile](Dockerfile) and [docker image](https://hub.docker.com/repository/docker/sasiburi/dsci-310-group-7)
+
+<br>
 
 ## Usage
-There are two suggested ways to repead/reproduce our analysis:
 
-### Via Docker
+### 0. Preparation
 
-**a. Run in your terminal**
+- You should sign up/on a [Docker](https://hub.docker.com) account.
+
+- Install Docker in your computer.
+
+- **Clone this repo**
+
+  You can find the detailed instructions of repository clone from [here](https://github.com/DSCI-310/DSCI-310-Group-7.git)
+
+  ```
+  git clone https://github.com/DSCI-310/DSCI-310-Group-7.git
+  ```
+
+  
+
+<br>
+
+Then, choose one of following two suggested ways to repeat/reproduce this analysis:
+
+### 1. Via Docker
+
+**a. Pull down the docker image**
 
 ```
 docker pull sasiburi/dsci-310-group-7:latest
 ```
 
-*Note: The latest version is v3.0.0. You can replace `latest` by another specific version.  Please kindly read the **History of Releases** for more versions.*
+The latest version is v3.0.0. You can replace `latest` by another specific version.  Please kindly read the **History of Releases** for more versions.
 
-<br>
+**c. Run the docker image**
 
-**b. Run the docker image**
-
-Clone this repo by command:
-
-```
-git clone https://github.com/DSCI-310/DSCI-310-Group-7.git
-```
-
-*Note*: you can find detailed instructions of repository clone from [here](https://github.com/DSCI-310/DSCI-310-Group-7.git).
-
-Make sure you are at the **root** of the cloned repo, then open it under the reproducible environment by following command:
+`cd` to the **root** of the cloned repo, then run the command:
 
 ```
 docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work sasiburi/dsci-310-group-7:latest
 ```
 
-*Note: if port 8888 has been allocated, you can replace 8888 by another random four-digit number.*
+Open the link provided on your console. Now you should able to see the repo under `work/`. 
 
-<br>
-
-**c. Access files via JupyterLab**
-
-Open link provided on the console
-
-*Note: If a token is required, it can be obtained on your terminal. For example, `token=3912f59232fe3b260fda201da4e822e69bfed02e649dc56b`, then `3912f59232fe3b260fda201da4e822e69bfed02e649dc56b` is the token.*
+- If a token is required, it can be obtained on your console. For example, `token=3912f59232fe3b260fda201da4e822e69bfed02e649dc56b`, then `3912f59232fe3b260fda201da4e822e69bfed02e649dc56b` is the token.
+- If the port `8888` has been occupied, you can replace the first `8888` by another four-digit number.
 
 <br>
 
 
 
-### Via MakeFile
+### 2. Via Makefile
 
-**a. Still Clone this repo. Same command as above.**
+**a. Install all the dependencies**
 
-**b. Installed all the **dependencies** listed as blow section.**
+**b. reproduce the analysis**
 
-**c. `cd` to the root of the local repo, and then run command:**
+`cd` to the **root** of the cloned repo, then run the command:
 
 ```
 make all
 ```
-**d. Now you can access to the most up to date report.**
-
-**e. reset the repo to clean, run the command:**
+**c. reset the repo**
 
 ```
 make clean
@@ -114,27 +140,6 @@ Releases relate to each milestone are listed as follows:
 more details could be found on the right-hand-side panel, **Releases** or our [docker web](https://hub.docker.com/r/sasiburi/dsci-310-group-7/tags).
 
 <br>
-
-## Dependencies
-
-1. A list of the dependencies packaged in the image:
-
-| Package Name | Version |
-| ------------ | ------- |
-| python       | 3.9.7   |
-| pandas       | 1.4.1   |
-| scikit-learn | 1.0.2   |
-| matplotlib   | 3.5.1   |
-| numpy        | 1.22.2  |
-| pytest       | 7.0.1   |
-| R            | 4.1.2   |
-| knitr        | 1.38    |
-| reticulate   | 1.24    |
-| tidyverse    | 1.3.1   |
-| jupyter-book |0.12.1.  |
-
-
-   see [dockerfile](Dockerfile) and [docker image](https://hub.docker.com/repository/docker/sasiburi/dsci-310-group-7)
 
 ##  [licenses](LICENSE.md):
 
