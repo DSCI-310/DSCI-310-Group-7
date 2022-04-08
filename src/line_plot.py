@@ -1,6 +1,3 @@
-import matplotlib.pyplot as plt
-
-
 # ' Plot a linear relationship
 # '
 # '
@@ -18,6 +15,9 @@ import matplotlib.pyplot as plt
 # '
 # ' @examples
 # ' line_plot(Ks, mean, std, "x-axis", "y-axis", "population distribution")
+
+import matplotlib.pyplot as plt
+
 def line_plot(k, mean, std, x, y, name):
     fig = plt.figure()
     plt.plot(range(1, k), mean, 'g')

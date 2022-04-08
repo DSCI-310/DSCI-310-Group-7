@@ -1,6 +1,3 @@
-import numpy as np
-
-
 # ' generate standard deviation of predicted array and observed array associated with each k
 # '
 # '
@@ -12,6 +9,8 @@ import numpy as np
 # '
 # ' @examples
 # ' para_optimize(yhat, y_test, 10)
+
+import numpy as np
 
 def stdAcc(yhat, y_test, Ks):
     std_acc = np.zeros((Ks - 1))

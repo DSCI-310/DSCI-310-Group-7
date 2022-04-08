@@ -7,6 +7,7 @@ RUN conda install --yes -c conda-forge\
     matplotlib=3.5.1 \
     numpy=1.22.2 \
     pytest=7.0.1 \ 
+    statsmodels=0.13.2 \
     jupyter-book=0.12.1 \
 
 RUN apt-get update && apt-get install -y r-base
