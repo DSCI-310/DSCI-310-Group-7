@@ -15,7 +15,7 @@
 <br>
 
 ## Abstract
-The data set we used is the Zoo (1990) provided by UCL Machine Learning Repositry. It stores data about 7 classes of animals and their related factors inlcuding animal name, hair, feathers and so on. In this project, we picked classification as our method to classify a given animal to its most likely type. All of 16 factors including hair, feathers, eggs, milk, airborne, aquatic, predator, toothed, backbone, breathes, venomous, fins, legs, tail, domestic, and catsize were selected as our predictors. To best predict the class of a new observation, we implemented and evalutated models based on a list of algorithms including k-Nearest Neighbor(k-NN), Decision Tree, Support Vector Machine and Logistic Regression. After a comparison among accuracies of different models, we finally found that algorithm k-NN produced the most accurate result of predicting animal type. Please kindly review our [analysis](analysis/zoo_analysis.ipynb) for more details. 
+The data set we used is the Zoo (1990) provided by UCL Machine Learning Repositry. It stores data about 7 classes of animals and their related factors inlcuding animal name, hair, feathers and so on. In this project, we picked classification as our method to classify a given animal to its most likely type. All of 16 factors including hair, feathers, eggs, milk, airborne, aquatic, predator, toothed, backbone, breathes, venomous, fins, legs, tail, domestic, and catsize were selected as our predictors. To best predict the class of a new observation, we implemented and evalutated models based on a list of algorithms including k-Nearest Neighbor(k-NN), Decision Tree, Support Vector Machine and Logistic Regression. After a comparison among accuracies of different models, we finally found that algorithm k-NN produced the most accurate result of predicting animal type. There are several ways to repeat/reproduce our analysis, please kindly find details in **Usage** section.
 
 Documents about Project Manners:
 
@@ -25,23 +25,34 @@ Documents about Project Manners:
 
 <br>
 
+## Result
+The final report can be viewed from the following:
+
+[Jbook Html](analysis/_build/html/index.html)
+
+[Jbook Pdf](analysis/_build/latex/python.pdf)
+
+[Rmd Html](doc/zoo_analysis.html)
+
+[Rmd PDF](doc/zoo_analysis.pdf)
+
+
 ## Usage
-Our analysis report in form of jupyter book is stored at [analysis/_build/html/index.html](analysis/_build/html/index.html).
-In order to preview/reproduce our report, there are two suggested ways:
+There are two suggested ways to repead/reproduce our analysis:
 
-1. Via Docker
+### Via Docker
 
-a. Run in your terminal
+**a. Run in your terminal**
 
 ```
 docker pull sasiburi/dsci-310-group-7:latest
 ```
 
-*Note: You can replace `latest` by another specific version.  Please kindly read the **History of Releases** for more versions.*
+*Note: The latest version is v3.0.0. You can replace `latest` by another specific version.  Please kindly read the **History of Releases** for more versions.*
 
 <br>
 
-b. Run the docker image
+**b. Run the docker image**
 
 Clone this repo by command:
 
@@ -61,30 +72,30 @@ docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work sasiburi/dsci-310-group
 
 <br>
 
-c. Access files via JupyterLab
+**c. Access files via JupyterLab**
 
 Open link provided on the console
 
-*Note: If token is required, it can be obtained on your terminal. For example, `token=3912f59232fe3b260fda201da4e822e69bfed02e649dc56b`, then `3912f59232fe3b260fda201da4e822e69bfed02e649dc56b` is the token.*
+*Note: If a token is required, it can be obtained on your terminal. For example, `token=3912f59232fe3b260fda201da4e822e69bfed02e649dc56b`, then `3912f59232fe3b260fda201da4e822e69bfed02e649dc56b` is the token.*
 
 <br>
 
 
 
-2. Via MakeFile
+### Via MakeFile
 
-a. Still Clone this repo. Same command as above.
+**a. Still Clone this repo. Same command as above.**
 
-b. Installed all the **dependencies** listed as blow section.
+**b. Installed all the **dependencies** listed as blow section.**
 
-c. `cd` to the root of the local repo, and then run command:
+**c. `cd` to the root of the local repo, and then run command:**
 
 ```
 make all
 ```
-d. Now you can access to the most up to date report.
+**d. Now you can access to the most up to date report.**
 
-e. reset the repo to clean, run the command:
+**e. reset the repo to clean, run the command:**
 
 ```
 make clean
@@ -98,8 +109,9 @@ Releases relate to each milestone are listed as follows:
 
 1. Milestone 1: [v0.5.0](https://github.com/DSCI-310/DSCI-310-Group-7/releases/tag/v0.5.0)
 2. Milestone 2: [v2.0.0](https://github.com/DSCI-310/DSCI-310-Group-7/releases/tag/v2.0.0)
+3. Milestone 3: [v3.0.0](https://github.com/DSCI-310/DSCI-310-Group-7/releases/tag/v3.0.0)
 
-more details could be found on the right-hand side panel - **Releases**.
+more details could be found on the right-hand-side panel, **Releases** or our [docker web](https://hub.docker.com/r/sasiburi/dsci-310-group-7/tags).
 
 <br>
 
@@ -115,6 +127,12 @@ more details could be found on the right-hand side panel - **Releases**.
 | matplotlib   | 3.5.1   |
 | numpy        | 1.22.2  |
 | pytest       | 7.0.1   |
+| R            | 4.1.2   |
+| knitr        | 1.38    |
+| reticulate   | 1.24    |
+| tidyverse    | 1.3.1   |
+| jupyter-book |0.12.1.  |
+
 
    see [dockerfile](Dockerfile) and [docker image](https://hub.docker.com/repository/docker/sasiburi/dsci-310-group-7)
 
