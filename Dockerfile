@@ -8,7 +8,7 @@ RUN conda install --yes -c conda-forge\
     numpy=1.22.2 \
     pytest=7.0.1 \ 
     statsmodels=0.13.2 \
-    jupyter-book=0.12.1 \
+    jupyter-book=0.12.1
 
 
 FROM jupyter/r-notebook:r-4.1.2
