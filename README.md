@@ -92,7 +92,7 @@ docker pull sasiburi/dsci-310-group-7:v2.9.0
 ```
 You can replace `latest` by another specific version.  Please kindly read the **History of Releases** for more versions.
 
-**c. Run the docker image**
+**b. Run the docker image**
 
 `cd` to the **root** of the cloned repo, then run the command:
 
@@ -100,17 +100,16 @@ You can replace `latest` by another specific version.  Please kindly read the **
 docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work sasiburi/dsci-310-group-7:v2.9.0
 ```
 
-Open the link provided on your console. Now you should able to see the repo under `work/`. 
+Open the link provided on your console. Now you should be able to see the repo under `work/`. 
 
-*Note: if you see the following error message: `docker: Error response from daemon: Mounts denied: 
-The path /YOURPATH is not shared from the host and is not known to Docker.`*
-
+**Possible Erros & Solutions**
+- If you see the following error message: `docker: Error response from daemon: Mounts denied: 
+The path /YOURPATH is not shared from the host and is not known to Docker.`
 Try following steps:
 1. Open Preferences
 2. Click Resources -> FILE SHARING
 3. Add your /path/to/exported/directory
 4. Restart Docker and try the command above again
-
 - If a token is required, it can be obtained on your console. For example, `token=3912f59232fe3b260fda201da4e822e69bfed02e649dc56b`, then `3912f59232fe3b260fda201da4e822e69bfed02e649dc56b` is the token.
 - If the port `8888` has been occupied, you can replace the first `8888` by another four-digit number.
 
