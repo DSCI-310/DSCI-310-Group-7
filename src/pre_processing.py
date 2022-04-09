@@ -13,6 +13,6 @@ def pre_process(link, header):
     if isinstance(link, str) & isinstance(header, list):
         data = pd.read_csv(link, header=None)
         data.columns = header
+        return data
     else:
         return ("Input 'link' should be a string type web link and input 'header' should be a list!")
-    return data
