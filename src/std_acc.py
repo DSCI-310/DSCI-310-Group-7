@@ -12,9 +12,12 @@
 
 import numpy as np
 
-def stdAcc(yhat, y_test, Ks):
-    std_acc = np.zeros((Ks - 1))
+def std_acc(yhat, y_test, Ks):
+    if isinstance(Ks, int):
+        std_acc = np.zeros((Ks - 1))
 
-    for n in range(1, Ks):
-        std_acc[n - 1] = np.std(yhat == y_test) / np.sqrt(yhat.shape[0])
-    return std_acc
+        for n in range(1, Ks):
+            std_acc[n - 1] = np.std(yhat == y_test) / np.sqrt(yhat.shape[0])
+        return std_acc
+    else:
+        return ("The input 'Ks' must be an integer greater than 1.")
