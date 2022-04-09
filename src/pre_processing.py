@@ -10,8 +10,9 @@ def pre_process(link, header):
     :param header: the desired header to be added
     :return: dataframe contating the data and header
     """
-
-    data = pd.read_csv(link, header=None)
-    data.columns = header
-
+    if isinstance(link, str) & isinstance(header, list):
+        data = pd.read_csv(link, header=None)
+        data.columns = header
+    else:
+        return ("Input 'link' should be a string type web link and input 'header' should be a list!")
     return data
