@@ -102,7 +102,7 @@ docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work sasiburi/dsci-310-group
 
 Open the link provided on your console. Now you should be able to see the repo under `work/`. 
 
-**Possible Erros & Solutions**
+**Possible Errors & Solutions**
 - If you see the following error message: `docker: Error response from daemon: Mounts denied: 
 The path /YOURPATH is not shared from the host and is not known to Docker.`
 Try following steps:
