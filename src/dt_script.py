@@ -12,13 +12,13 @@ export_loc   The export location of all the results based on the KNN model
 
 import pandas as pd
 import argparse
-from line_plot import *
+from src.zoo.line_plot import *
 from sklearn.model_selection import train_test_split, GridSearchCV
 import numpy as np
 import matplotlib.pyplot as plt
-from train_and_predict_model import *
-from para_optimize import *
-from std_acc import *
+from src.zoo.train_and_predict_model import *
+from src.zoo.para_optimize import *
+from src.zoo.std_acc import *
 
 # setting up the parser
 parser = argparse.ArgumentParser(description='Read and save dataset')
