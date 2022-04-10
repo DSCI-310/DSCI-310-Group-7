@@ -10,7 +10,8 @@ out_file    The local file path to save the processed data including the file ty
 
 import argparse
 import pandas as pd
-from pre_processing import *
+from src.zoo import pre_processing as pr
+
 
 parser = argparse.ArgumentParser(description='Read and save dataset')
 parser.add_argument('url', type=str, help='the url of the dataset')
@@ -23,6 +24,6 @@ colm = ["animalName", "hair", "feathers", "eggs", "milk", "airborne", "aquatic",
         "predator", "toothed", "backbone", "breathes", "venomous", "fins", 
         "legs", "tail", "domestic", "catsize", "type"]
 
-data = pre_process(url, colm)
+data = pr.pre_process(url, colm)
 data.to_csv(path)
 
