@@ -1,10 +1,10 @@
 # Fdb version 3
-["makeindex python.idx"] 1648943270 "python.idx" "python.ind" "python" 1648943278
+["makeindex python.idx"] 1649550753 "python.idx" "python.ind" "python" 1649550761
   "python.idx" 0 -1 0 "pdflatex"
   (generated)
   "python.ilg"
   "python.ind"
-["pdflatex"] 1648943274 "python.tex" "python.pdf" "python" 1648943278
+["pdflatex"] 1649550757 "python.tex" "python.pdf" "python" 1649550761
   "c:/Users/podda/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1648790665 1528 7e12f4c0fcf5a072cebdcfbfc610f54c ""
   "c:/Users/podda/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1648790560 916 f87d7c45f9c908e672703b83b72241a3 ""
   "c:/Users/podda/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1648790560 924 9904cf1d39e9767e7a3622f2a125a565 ""
@@ -238,17 +238,17 @@
   "c:/Users/podda/AppData/Roaming/TinyTeX/texmf-dist/web2c/texmf.cnf" 1648790593 40042 fe981136cbb5f3715ab1b0e46e3d3892 ""
   "c:/Users/podda/AppData/Roaming/TinyTeX/texmf-var/web2c/xetex/xelatex.fmt" 1648790684 3608264 bb35b90a1ac616c1c84a0daad47b4245 ""
   "c:/Users/podda/AppData/Roaming/TinyTeX/texmf.cnf" 1642228859 956 29179b62e451d793da4ed5feea428426 ""
-  "dt_accuracy.png" 1648943249 29784 01a1d346cefd5936ff95649ec6f4e795 ""
-  "fig1.png" 1648943245 93395 056bdd6d5f2148190e2d473697a895f8 ""
+  "dt_accuracy.png" 1649550730 30957 a82704c97a1d3f28498d95720a23b904 ""
+  "fig1.png" 1649550079 93395 056bdd6d5f2148190e2d473697a895f8 ""
   "jupyterBook.cls" 1648790288 2743 52e249bf26da4a9394954634d2639f42 ""
-  "k_accuracy.png" 1648943247 27089 ac797f4f848367002e7026ad1d8c385e ""
-  "python.aux" 1648943278 5488 5da808f5226e575e4e155d8322aa5f89 "pdflatex"
+  "k_accuracy.png" 1649550687 27089 ac797f4f848367002e7026ad1d8c385e ""
+  "python.aux" 1649550760 5544 98a26d09963e3af9b7c584d87c0b1438 "pdflatex"
   "python.ind" 0 -1 0 "makeindex python.idx"
-  "python.out" 1648943278 1081 f4b0987191e76cffe322ca005779f6c1 "pdflatex"
-  "python.tex" 1648943265 22136 1b88f89528c9a126363f6144321b08b0 ""
-  "python.toc" 1648943278 1255 98c60c6fd810bcfb59a9c2ddc2370d49 "pdflatex"
+  "python.out" 1649550760 1081 f4b0987191e76cffe322ca005779f6c1 "pdflatex"
+  "python.tex" 1649550746 24533 03fbf114c82f14a0410615093eb126bf ""
+  "python.toc" 1649550760 1255 98c60c6fd810bcfb59a9c2ddc2370d49 "pdflatex"
   "sphinx.sty" 1648790280 13276 82c78138249383cc280953c4285ce73f ""
-  "sphinxhighlight.sty" 1648943265 6785 76d10c62e0f0661410b46f5db6118e26 ""
+  "sphinxhighlight.sty" 1649550746 6785 76d10c62e0f0661410b46f5db6118e26 ""
   "sphinxlatexadmonitions.sty" 1648790280 6238 2d867d769abf3f72abc17ef52adff78b ""
   "sphinxlatexcontainers.sty" 1648790280 901 d3a3a1b7b2547f47ade2499350b5c420 ""
   "sphinxlatexgraphics.sty" 1648790280 4840 a9578332b6f3b35e198751fb632c9b79 ""
@@ -263,7 +263,7 @@
   "sphinxlatexstyletext.sty" 1648790280 6177 c18841ce3fafc366cd3b145f8faa4c37 ""
   "sphinxlatextables.sty" 1648790280 21848 2827eb0b11b99b185a8b77317d3e131c ""
   "sphinxmanual.cls" 1648790280 4241 7b0d7a37df7b5715fb0dbd585c52ecdb ""
-  "sphinxmessages.sty" 1648943265 765 3f5fcd6cdd7964ed608767954a8ced6f ""
+  "sphinxmessages.sty" 1649550746 765 3f5fcd6cdd7964ed608767954a8ced6f ""
   "sphinxoptionsgeometry.sty" 1648790280 2061 47bb34b8ed8a78823eb0c886abfb9f4d ""
   "sphinxoptionshyperref.sty" 1648790280 1094 79beb8b8a3f10784f8cce804e0f9d3aa ""
   "sphinxpackagefootnote.sty" 1648790280 13248 e2c77871396275ccf592403f8130f6f2 ""

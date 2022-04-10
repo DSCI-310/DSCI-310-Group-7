@@ -49,7 +49,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 Ks = 50
 mean_acc = np.zeros((Ks-1))
-std_acc = np.zeros((Ks-1))
+std_accc = np.zeros((Ks-1))
 ConfustionMx = [];
 for n in range(1,Ks):
     # Train Model and Predict
@@ -58,16 +58,16 @@ for n in range(1,Ks):
     yhat=decTree.predict(X_test)
     mean_acc[n-1] = metrics.accuracy_score(y_test, yhat)
 
-std_acc = std_acc(yhat, y_test, Ks)
+std_accc = std_acc(yhat, y_test, Ks)
 
-line_plot(Ks, mean_acc, std_acc, "Max Depth", "Accuracy", "Max Depth vs. Accuracy")
+line_plot(Ks, mean_acc, std_accc, "Max Depth", "Accuracy", "Max Depth vs. Accuracy")
 plt.savefig(export_loc + "figures/dt_accuracy.png")
 
 # As Best is max depth = 5
 # using max depth = 5 for the final decision tree
 # Final decision tree is here used the split test part to train again for better training, and better prediction
 # DT evaluation is also here scroll through the output
-Final_dec_Tree = finalModel("DT", 5, X_train, X_test, y_train, y_test, X, y)
+Final_dec_Tree = final_Model("DT", 5, X_train, X_test, y_train, y_test, X, y)
 
 # cross-validation on decision tree
 cv_results_dt = cross_validate(Final_dec_Tree, X_train, y_train, cv=4, return_train_score=True);
