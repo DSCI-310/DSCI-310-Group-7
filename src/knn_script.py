@@ -61,7 +61,7 @@ for n in range(1, Ks):
     yhat = neigh.predict(X_test)
     mean_acc[n - 1] = metrics.accuracy_score(y_test, yhat)
 
-std_acc = stdAcc(yhat, y_test, Ks)
+std_acc = std_acc(yhat, y_test, Ks)
 
 line_plot(Ks, mean_acc, std_acc, "Number of Neighbors (K)", "Accuracy", "Number of Neighbors vs. Accuracy")
 plt.savefig(export_loc + "figures/k_accuracy.png")
