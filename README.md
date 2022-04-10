@@ -88,16 +88,16 @@ Then, choose one of following two suggested ways to repeat/reproduce this analys
 **a. Pull down the docker image**
 
 ```
-docker pull sasiburi/dsci-310-group-7:v2.9.0
+docker pull sasiburi/dsci-310-group-7:latest
 ```
-You can replace `latest` by another specific version.  Please kindly read the **History of Releases** for more versions.
+Up to the present, the latest version is v3.2.0. You can replace `latest` by another specific version.
 
 **b. Run the docker image**
 
 `cd` to the **root** of the cloned repo, then run the command:
 
 ```
-docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work sasiburi/dsci-310-group-7:v2.9.0
+docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work sasiburi/dsci-310-group-7:latest
 ```
 
 Open the link provided on your console. Now you should be able to see the repo under `work/`. 
@@ -143,6 +143,7 @@ Releases relate to each milestone are listed as follows:
 1. Milestone 1: [v0.5.0](https://github.com/DSCI-310/DSCI-310-Group-7/releases/tag/v0.5.0)
 2. Milestone 2: [v0.10.0](https://github.com/DSCI-310/DSCI-310-Group-7/releases/tag/v0.10.0)
 3. Milestone 3: [v2.9.0](https://github.com/DSCI-310/DSCI-310-Group-7/releases/tag/v2.9.0)
+4. Final Project: [v3.2.0](https://github.com/DSCI-310/DSCI-310-Group-7/releases/tag/v3.2.0)
 
 more details could be found on the right-hand-side panel, **Releases** or our [docker web](https://hub.docker.com/r/sasiburi/dsci-310-group-7/tags).
 
