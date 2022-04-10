@@ -10,7 +10,7 @@ out_file    The local file path to save the processed data including the file ty
 
 import argparse
 import pandas as pd
-from pre_processing import *
+from src.zoo.pre_processing import *
 
 parser = argparse.ArgumentParser(description='Read and save dataset')
 parser.add_argument('url', type=str, help='the url of the dataset')

@@ -62,8 +62,10 @@ zoo_data
 # To train and evaluate each model, we split the dataset into training and testing sets. We use 80% of the total data to train the models, and the rest of the data is aimed to test the models.
 
 # ### KNN
-# KNN captures the idea of similarity (sometimes called distance, proximity, or closeness) 
-# with some basic mathematics we might have learned earlier. Basically in terms of geometry we can always calculate the distance between points on a graph. Similarly, using KNN we can group similar points together and predict the target with our feature variables(x).
+# KNN captures the idea of similarity (sometimes called distance, proximity, or closeness) with some basic mathematics we might have learned earlier. Basically in terms of geometry we can always calculate the distance between points on a graph. Similarly, using KNN we can group similar points together and predict the target with our feature variables(x).
+# 
+# First of all, we have to train the model for different set of K values and finding the best K value.
+# Then we want to plot the accuracy for different K values.
 
 # ```{figure-md} f2
 # <img src="../results/figures/k_accuracy.png" alt="num" class="bg-primary mb-1" width="500px">
@@ -108,11 +110,7 @@ knn_classification_report
 
 
 # ### Decision Tree
-# A decision tree is a decision support tool that uses a tree-like model of decisions and their 
-# possible consequences, including chance event outcomes, resource costs, and utility
-# The goal of using a Decision Tree is to create a training model that can use to predict 
-# the class or value of the target variable by learning simple decision rules inferred 
-# from prior data(training data).
+# A decision tree is a decision support tool that uses a tree-like model of decisions and their possible consequences, including chance event outcomes, resource costs, and utility The goal of using a Decision Tree is to create a training model that can use to predict the class or value of the target variable by learning simple decision rules inferred from prior data(training data).
 
 # ```{figure-md} f3
 # <img src="../results/figures/dt_accuracy.png" alt="num" class="bg-primary mb-1" width="500px">
@@ -128,7 +126,7 @@ knn_classification_report
 
 # DT Cross Validation Result:
 
-# In[5]:
+# In[9]:
 
 
 {
@@ -143,7 +141,7 @@ dt_cross_validate_result
 
 # DT Cross Validation Result:
 
-# In[6]:
+# In[11]:
 
 
 {
@@ -157,10 +155,9 @@ dt_classification_report
 
 
 # ### Support Vector Machine
-# SVM or Support Vector Machine is a linear model for classification and regression problems. 
-# It can solve linear and non-linear problems and work well for many practical problems. 
-# The idea of SVM is simple: The algorithm creates a line or a hyperplane which separates the 
-# data into classes.
+# SVM or Support Vector Machine is a linear model for classification and regression problems. It can solve linear and non-linear problems and work well for many practical problems. The idea of SVM is simple: The algorithm creates a line or a hyperplane which separates the data into classes{cite:p}`towards-dsci`.
+# 
+# Final SVM is here used the splited test part to train again for better training, and better prediction. An svm evaluation as well as the final model is also provided below.
 
 # ### SVM training model Jaccard Score, final model and evaluation
 
@@ -180,14 +177,14 @@ svm_classification_report
 
 
 # ### Logistic Regression
-# Logistic Regression is a "Supervised machine learning" algorithm that can be used to model the probability of a certain class or event. It is used when the data is linearly separable and the outcome is binary or dichotomous in nature. That means Logistic regression is usually used for Binary classification problems.
+# Logistic Regression is a "Supervised machine learning" algorithm that can be used to model the probability of a certain class or event. It is used when the data is linearly separable and the outcome is binary or dichotomous in nature. That means Logistic regression is usually used for Binary classification problems{cite:p}`ibm-dsci`.
 
 # ### Logistic Regression training model Jaccard Score, final model and evaluation
 # 
 
 # LR Classification Report:
 
-# In[8]:
+# In[1]:
 
 
 {
@@ -198,4 +195,10 @@ svm_classification_report
 lr_classification_report= pd.read_csv("../results/csv/lr_classification_report.csv")
 lr_classification_report.columns.values[0]="index"
 lr_classification_report
+
+
+# In[ ]:
+
+
+
 

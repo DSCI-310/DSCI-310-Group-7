@@ -12,13 +12,13 @@ export_loc   The export location of all the results based on the KNN model
 
 import pandas as pd
 import argparse
-from line_plot import *
+from src.zoo.line_plot import *
 from sklearn.model_selection import train_test_split, GridSearchCV
 import numpy as np
 import matplotlib.pyplot as plt
-from train_and_predict_model import *
-from para_optimize import *
-from std_acc import *
+from src.zoo.train_and_predict_model import *
+from src.zoo.para_optimize import *
+from src.zoo.std_acc import *
 
 # setting up the parser
 parser = argparse.ArgumentParser(description='Read and save dataset')
@@ -49,7 +49,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 # final LR model is here used the splited test part to train again for better training, and better prediction
 # LR evaluation train and final model is also here
-LR = finalModel("LR", -1, X_train, X_test, y_train, y_test, X, y)
+LR = final_Model("LR", -1, X_train, X_test, y_train, y_test, X, y)
 yhat = LR.predict(X_test)
 
 report = classification_report(y_test, yhat, output_dict=True)
@@ -58,7 +58,7 @@ df.to_csv(export_loc + "csv/lr_classification_report.csv")
 
 # Final SVM is here used the splited test part to train again for better training, and better prediction
 # svm evaluation train and final model is also here scroll through the output
-svec = finalModel("SVM", -1, X_train, X_test, y_train, y_test, X, y)
+svec = final_Model("SVM", -1, X_train, X_test, y_train, y_test, X, y)
 yhat = svec.predict(X_test)
 
 report = classification_report(y_test, yhat, output_dict=True)

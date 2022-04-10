@@ -12,13 +12,13 @@ export_loc   The export location of all the results based on the KNN model
 
 import pandas as pd
 import argparse
-from line_plot import *
+from src.zoo.line_plot import *
 from sklearn.model_selection import train_test_split, GridSearchCV
 import numpy as np
 import matplotlib.pyplot as plt
-from train_and_predict_model import *
-from para_optimize import *
-from std_acc import *
+from src.zoo.train_and_predict_model import *
+from src.zoo.para_optimize import *
+from src.zoo.std_acc import *
 
 # setting up the parser
 parser = argparse.ArgumentParser(description='Read and save dataset')
@@ -53,7 +53,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # training the model for different set of K values and finding the best K value
 Ks = 81
 mean_acc = np.zeros((Ks - 1))
-std_acc = np.zeros((Ks - 1))
+std_accc = np.zeros((Ks - 1))
 ConfustionMx = [];
 for n in range(1, Ks):
     # Train Model and Predict
@@ -61,9 +61,9 @@ for n in range(1, Ks):
     yhat = neigh.predict(X_test)
     mean_acc[n - 1] = metrics.accuracy_score(y_test, yhat)
 
-std_acc = stdAcc(yhat, y_test, Ks)
+std_accc = std_acc(yhat, y_test, Ks)
 
-line_plot(Ks, mean_acc, std_acc, "Number of Neighbors (K)", "Accuracy", "Number of Neighbors vs. Accuracy")
+line_plot(Ks, mean_acc, std_accc, "Number of Neighbors (K)", "Accuracy", "Number of Neighbors vs. Accuracy")
 plt.savefig(export_loc + "figures/k_accuracy.png")
 
 # Finding the K value using Grid Search
@@ -77,7 +77,7 @@ para_optimize(knn, param_grid, 3, X_train, y_train)
 # using K = 1 for the final KNN model
 # Final KNN model is here used the split test part to train again for better training, and better prediction
 # KNN evaluation is also here scroll through the output
-final_knn_model = finalModel("KNN", 1, X_train, X_test, y_train, y_test, X, y)
+final_knn_model = final_Model("KNN", 1, X_train, X_test, y_train, y_test, X, y)
 
 # cross-validation on knn
 cv_results_knn = cross_validate(final_knn_model, X_train, y_train, cv=3, return_train_score=True);

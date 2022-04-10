@@ -491,8 +491,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>To train and evaluate each model, we split the dataset into training and testing sets. We use 80% of the total data to train the models, and the rest of the data is aimed to test the models.</p>
 <div class="section" id="knn">
 <h3>KNN<a class="headerlink" href="#knn" title="Permalink to this headline">¶</a></h3>
-<p>KNN captures the idea of similarity (sometimes called distance, proximity, or closeness)
-with some basic mathematics we might have learned earlier. Basically in terms of geometry we can always calculate the distance between points on a graph. Similarly, using KNN we can group similar points together and predict the target with our feature variables(x).</p>
+<p>KNN captures the idea of similarity (sometimes called distance, proximity, or closeness) with some basic mathematics we might have learned earlier. Basically in terms of geometry we can always calculate the distance between points on a graph. Similarly, using KNN we can group similar points together and predict the target with our feature variables(x).</p>
+<p>First of all, we have to train the model for different set of K values and finding the best K value.
+Then we want to plot the accuracy for different K values.</p>
 <div class="figure align-default" id="f2">
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/k_accuracy.png"><img alt="num" class="bg-primary mb-1" src="_images/k_accuracy.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">A plot reveals the relationship between K and corresponding accuracy</span><a class="headerlink" href="#f2" title="Permalink to this image">¶</a></p>
@@ -531,12 +532,12 @@ with some basic mathematics we might have learned earlier. Basically in terms of
     <tr>
       <th>0</th>
       <td>fit_time</td>
-      <td>0.003352</td>
+      <td>0.002855</td>
     </tr>
     <tr>
       <th>1</th>
       <td>score_time</td>
-      <td>0.000000</td>
+      <td>0.003670</td>
     </tr>
     <tr>
       <th>2</th>
@@ -660,11 +661,7 @@ with some basic mathematics we might have learned earlier. Basically in terms of
 </div>
 <div class="section" id="decision-tree">
 <h3>Decision Tree<a class="headerlink" href="#decision-tree" title="Permalink to this headline">¶</a></h3>
-<p>A decision tree is a decision support tool that uses a tree-like model of decisions and their
-possible consequences, including chance event outcomes, resource costs, and utility
-The goal of using a Decision Tree is to create a training model that can use to predict
-the class or value of the target variable by learning simple decision rules inferred
-from prior data(training data).</p>
+<p>A decision tree is a decision support tool that uses a tree-like model of decisions and their possible consequences, including chance event outcomes, resource costs, and utility The goal of using a Decision Tree is to create a training model that can use to predict the class or value of the target variable by learning simple decision rules inferred from prior data(training data).</p>
 <div class="figure align-default" id="f3">
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/dt_accuracy.png"><img alt="num" class="bg-primary mb-1" src="_images/dt_accuracy.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">A plot reveals the relationship between deepth and corresponding accuracy</span><a class="headerlink" href="#f3" title="Permalink to this image">¶</a></p>
@@ -703,12 +700,12 @@ from prior data(training data).</p>
     <tr>
       <th>0</th>
       <td>fit_time</td>
-      <td>0.001250</td>
+      <td>0.001509</td>
     </tr>
     <tr>
       <th>1</th>
       <td>score_time</td>
-      <td>0.000999</td>
+      <td>0.001098</td>
     </tr>
     <tr>
       <th>2</th>
@@ -832,10 +829,8 @@ from prior data(training data).</p>
 </div>
 <div class="section" id="support-vector-machine">
 <h3>Support Vector Machine<a class="headerlink" href="#support-vector-machine" title="Permalink to this headline">¶</a></h3>
-<p>SVM or Support Vector Machine is a linear model for classification and regression problems.
-It can solve linear and non-linear problems and work well for many practical problems.
-The idea of SVM is simple: The algorithm creates a line or a hyperplane which separates the
-data into classes.</p>
+<p>SVM or Support Vector Machine is a linear model for classification and regression problems. It can solve linear and non-linear problems and work well for many practical problems. The idea of SVM is simple: The algorithm creates a line or a hyperplane which separates the data into classes<span id="id1">[<a class="reference internal" href="references.html#id6" title="TDS editors. How data can make a difference in the real world. Towards Data Science, 2022. URL: https://towardsdatascience.com.">editors, 2022</a>]</span>.</p>
+<p>Final SVM is here used the splited test part to train again for better training, and better prediction. An svm evaluation as well as the final model is also provided below.</p>
 </div>
 <div class="section" id="svm-training-model-jaccard-score-final-model-and-evaluation">
 <h3>SVM training model Jaccard Score, final model and evaluation<a class="headerlink" href="#svm-training-model-jaccard-score-final-model-and-evaluation" title="Permalink to this headline">¶</a></h3>
@@ -947,114 +942,29 @@ data into classes.</p>
 </div>
 <div class="section" id="logistic-regression">
 <h3>Logistic Regression<a class="headerlink" href="#logistic-regression" title="Permalink to this headline">¶</a></h3>
-<p>Logistic Regression is a “Supervised machine learning” algorithm that can be used to model the probability of a certain class or event. It is used when the data is linearly separable and the outcome is binary or dichotomous in nature. That means Logistic regression is usually used for Binary classification problems.</p>
+<p>Logistic Regression is a “Supervised machine learning” algorithm that can be used to model the probability of a certain class or event. It is used when the data is linearly separable and the outcome is binary or dichotomous in nature. That means Logistic regression is usually used for Binary classification problems<span id="id2">[<a class="reference internal" href="references.html#id7" title="IBM Cloud Education. What is data science. 2020. URL: https://www.ibm.com/cloud/learn/data-science-introduction.">Education, 2020</a>]</span>.</p>
 </div>
 <div class="section" id="logistic-regression-training-model-jaccard-score-final-model-and-evaluation">
 <h3>Logistic Regression training model Jaccard Score, final model and evaluation<a class="headerlink" href="#logistic-regression-training-model-jaccard-score-final-model-and-evaluation" title="Permalink to this headline">¶</a></h3>
 <p>LR Classification Report:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="p">{</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="s2">&quot;hide-input&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="p">}</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">lr_classification_report</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../results/csv/lr_classification_report.csv&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">lr_classification_report</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;index&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">lr_classification_report</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>index</th>
-      <th>precision</th>
-      <th>recall</th>
-      <th>f1-score</th>
-      <th>support</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>0.875000</td>
-      <td>1.000000</td>
-      <td>0.933333</td>
-      <td>7.000000</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>0.833333</td>
-      <td>1.000000</td>
-      <td>0.909091</td>
-      <td>5.000000</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>4</td>
-      <td>0.500000</td>
-      <td>1.000000</td>
-      <td>0.666667</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>5</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>6</td>
-      <td>0.750000</td>
-      <td>1.000000</td>
-      <td>0.857143</td>
-      <td>3.000000</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>7</td>
-      <td>1.000000</td>
-      <td>0.250000</td>
-      <td>0.400000</td>
-      <td>4.000000</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>accuracy</td>
-      <td>0.809524</td>
-      <td>0.809524</td>
-      <td>0.809524</td>
-      <td>0.809524</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>macro avg</td>
-      <td>0.659722</td>
-      <td>0.708333</td>
-      <td>0.627706</td>
-      <td>21.000000</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>weighted avg</td>
-      <td>0.811508</td>
-      <td>0.809524</td>
-      <td>0.757947</td>
-      <td>21.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<span class="ne">NameError</span>: name &#39;pd&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>

@@ -84,7 +84,7 @@
         
 
 \title{Zoo Analysis}
-\date{Apr 02, 2022}
+\date{Apr 09, 2022}
 \release{}
 \author{DSCI310\sphinxhyphen{}group7}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -105,7 +105,7 @@
 \end{DUlineblock}
 
 \sphinxAtStartPar
-The data set we will be using is Zoo (1990) provided by UC Irvine Machine Learning Repository. It stores data with 7 classes of animals and their related characteristics including animal name, hair, feathers and other attributes. In this project, we will use classification as our method to predict a most likely type of a given animal.
+The data set we will be using is Zoo (1990) provided by UC Irvine Machine Learning Repository. It stores data with 7 classes of animals and their related characteristics including animal name, hair, feathers and other attributes. In this project, classification is the main method on predicting a most likely type of a given animal.
 
 \sphinxAtStartPar
 \sphinxstylestrong{Below is a table of contents}
@@ -290,8 +290,11 @@ To train and evaluate each model, we split the dataset into training and testing
 \subsection{KNN}
 \label{\detokenize{analysis:knn}}
 \sphinxAtStartPar
-KNN captures the idea of similarity (sometimes called distance, proximity, or closeness)
-with some basic mathematics we might have learned earlier. Basically in terms of geometry we can always calculate the distance between points on a graph. Similarly, using KNN we can group similar points together and predict the target with our feature variables(x).
+KNN captures the idea of similarity (sometimes called distance, proximity, or closeness) with some basic mathematics we might have learned earlier. Basically in terms of geometry we can always calculate the distance between points on a graph. Similarly, using KNN we can group similar points together and predict the target with our feature variables(x).
+
+\sphinxAtStartPar
+First of all, we have to train the model for different set of K values and finding the best K value.
+Then we want to plot the accuracy for different K values.
 
 \begin{figure}[htbp]
 \centering
@@ -318,8 +321,8 @@ KNN Cross Validation Result:
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
       criteria     score
-0     fit\PYGZus{}time  0.003352
-1   score\PYGZus{}time  0.000000
+0     fit\PYGZus{}time  0.002855
+1   score\PYGZus{}time  0.003670
 2   test\PYGZus{}score  0.936847
 3  train\PYGZus{}score  1.000000
 \end{sphinxVerbatim}
@@ -356,11 +359,7 @@ KNN Classification Report:
 \subsection{Decision Tree}
 \label{\detokenize{analysis:decision-tree}}
 \sphinxAtStartPar
-A decision tree is a decision support tool that uses a tree\sphinxhyphen{}like model of decisions and their
-possible consequences, including chance event outcomes, resource costs, and utility
-The goal of using a Decision Tree is to create a training model that can use to predict
-the class or value of the target variable by learning simple decision rules inferred
-from prior data(training data).
+A decision tree is a decision support tool that uses a tree\sphinxhyphen{}like model of decisions and their possible consequences, including chance event outcomes, resource costs, and utility The goal of using a Decision Tree is to create a training model that can use to predict the class or value of the target variable by learning simple decision rules inferred from prior data(training data).
 
 \begin{figure}[htbp]
 \centering
@@ -387,8 +386,8 @@ DT Cross Validation Result:
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
       criteria     score
-0     fit\PYGZus{}time  0.001250
-1   score\PYGZus{}time  0.000999
+0     fit\PYGZus{}time  0.001509
+1   score\PYGZus{}time  0.001098
 2   test\PYGZus{}score  0.950000
 3  train\PYGZus{}score  0.995833
 \end{sphinxVerbatim}
@@ -425,10 +424,10 @@ DT Cross Validation Result:
 \subsection{Support Vector Machine}
 \label{\detokenize{analysis:support-vector-machine}}
 \sphinxAtStartPar
-SVM or Support Vector Machine is a linear model for classification and regression problems.
-It can solve linear and non\sphinxhyphen{}linear problems and work well for many practical problems.
-The idea of SVM is simple: The algorithm creates a line or a hyperplane which separates the
-data into classes.
+SVM or Support Vector Machine is a linear model for classification and regression problems. It can solve linear and non\sphinxhyphen{}linear problems and work well for many practical problems. The idea of SVM is simple: The algorithm creates a line or a hyperplane which separates the data into classes{[}\hyperlink{cite.references:id6}{editors, 2022}{]}.
+
+\sphinxAtStartPar
+Final SVM is here used the splited test part to train again for better training, and better prediction. An svm evaluation as well as the final model is also provided below.
 
 
 \subsection{SVM training model Jaccard Score, final model and evaluation}
@@ -461,7 +460,7 @@ SVM Classification Report:
 \subsection{Logistic Regression}
 \label{\detokenize{analysis:logistic-regression}}
 \sphinxAtStartPar
-Logistic Regression is a “Supervised machine learning” algorithm that can be used to model the probability of a certain class or event. It is used when the data is linearly separable and the outcome is binary or dichotomous in nature. That means Logistic regression is usually used for Binary classification problems.
+Logistic Regression is a “Supervised machine learning” algorithm that can be used to model the probability of a certain class or event. It is used when the data is linearly separable and the outcome is binary or dichotomous in nature. That means Logistic regression is usually used for Binary classification problems{[}\hyperlink{cite.references:id7}{Education, 2020}{]}.
 
 
 \subsection{Logistic Regression training model Jaccard Score, final model and evaluation}
@@ -474,16 +473,19 @@ LR Classification Report:
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-          index  precision    recall  f1\PYGZhy{}score    support
-0             1   0.875000  1.000000  0.933333   7.000000
-1             2   0.833333  1.000000  0.909091   5.000000
-2             4   0.500000  1.000000  0.666667   1.000000
-3             5   0.000000  0.000000  0.000000   1.000000
-4             6   0.750000  1.000000  0.857143   3.000000
-5             7   1.000000  0.250000  0.400000   4.000000
-6      accuracy   0.809524  0.809524  0.809524   0.809524
-7     macro avg   0.659722  0.708333  0.627706  21.000000
-8  weighted avg   0.811508  0.809524  0.757947  21.000000
+\PYG{g+gt}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{n+ne}{NameError}\PYG{g+gWhitespace}{                                 }Traceback (most recent call last)
+\PYG{n}{Input} \PYG{n}{In} \PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{o+ow}{in} \PYG{o}{\PYGZlt{}}\PYG{n}{module}\PYG{o}{\PYGZgt{}}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{1} \PYG{p}{\PYGZob{}}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{2}     \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{tags}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{p}{[}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{3}         \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{hide\PYGZhy{}input}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{4}     \PYG{p}{]}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{5} \PYG{p}{\PYGZcb{}}
+\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{6} \PYG{n}{lr\PYGZus{}classification\PYGZus{}report}\PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{../results/csv/lr\PYGZus{}classification\PYGZus{}report.csv}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{7} \PYG{n}{lr\PYGZus{}classification\PYGZus{}report}\PYG{o}{.}\PYG{n}{columns}\PYG{o}{.}\PYG{n}{values}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{index}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{8} \PYG{n}{lr\PYGZus{}classification\PYGZus{}report}
+
+\PYG{n+ne}{NameError}: name \PYGZsq{}pd\PYGZsq{} is not defined
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -499,7 +501,10 @@ LR Classification Report:
 After analyzing all the different 4 models K Nearest Neighbor(KNN), Decision Tree, Support Vector Machine and Logistic Regression, we found KNN is best to predict the animal type here. As you have seen in the model evaluation tables before, for accuracy KNN is the best, the second\sphinxhyphen{}best is decision tree method and following by Support Vector Machine and Logistic Regression.
 
 \sphinxAtStartPar
-The result of KNN was expected as KNN is the best in grouping similar data points together and giving the best prediction results. Predicting the correct animal type with the highest accuracy have a huge impact on identifying animal types. These models can be used to identify animal types instantly for example if someone saw/discovered an animal and the type is not identified then they can feed all the characteristics fields to the model. The model can predict the animal type accurately, which is way more accurate than identifying and classifying the animal based on common sense. Thus our model can increase the research potential in many fields but not just limited to Marine Science, Animal Science, Forestry, and etc. This might lead to a future question in which how we are going to maintain the accuracy of predictions when working with more diverse groups of animals. Another possible aspect of this can be how some attributes of animals will relate to each other, for instance, relation between animals which has teeth vs predator. Furthermore, how we are going to use those relations to predict behaviors and attributes of newly discovered animals and how we are going to make our perceptions on animals even more detailed. These models and their advancements will not only widen our knowledge in terms of animal biology but will also let us find all other possible relations within the nature in a much more efficient way.
+The result of KNN was expected as KNN is the best in grouping similar data points together and giving the best prediction results. Predicting the correct animal type with the highest accuracy have a huge impact on identifying animal types. These models can be used to identify animal types instantly for example if someone saw/discovered an animal and the type is not identified then they can feed all the characteristics fields to the model. The model can predict the animal type accurately, which is way more accurate than identifying and classifying the animal based on common sense. Thus our model can increase the research potential in many fields but not just limited to Marine Science, Animal Science, Forestry, and etc.
+
+\sphinxAtStartPar
+A future question might be led to: how we are going to maintain the accuracy of predictions when working with more diverse groups of animals? Another possible aspect of this can be how some attributes of animals will relate to each other, for instance, relation between animals which has teeth vs predator. Furthermore, how we are going to use those relations to predict behaviors and attributes of newly discovered animals and how we are going to make our perceptions on animals even more detailed. These models and their advancements will not only widen our knowledge in terms of animal biology but will also let us find all other possible relations within the nature in a much more efficient way.
 
 \sphinxstepscope
 
@@ -519,6 +524,12 @@ Y. H. Sharath Kumar N. Manohar and G. H. Kumar. Supervised and unsupervised 
 \bibitem[3]{references:id5}
 \sphinxAtStartPar
 UCI Machine Learning Repository. Zoo. \sphinxstyleemphasis{UCI Machine Learning Repository}, 1990. URL: \sphinxurl{https://archive.ics.uci.edu/ml/datasets/zoo}.
+\bibitem[4]{references:id6}
+\sphinxAtStartPar
+TDS editors. How data can make a difference in the real world. \sphinxstyleemphasis{Towards Data Science}, 2022. URL: \sphinxurl{https://towardsdatascience.com}.
+\bibitem[5]{references:id7}
+\sphinxAtStartPar
+IBM Cloud Education. What is data science. 2020. URL: \sphinxurl{https://www.ibm.com/cloud/learn/data-science-introduction}.
 \end{sphinxthebibliography}
 
 
